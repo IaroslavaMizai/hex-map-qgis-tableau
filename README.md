@@ -163,7 +163,6 @@ QGIS will add the saved shapefile to your project. Use this file in the next ste
 
 ### 4.a Merged hexagons (no coding) <a id="point-4a"></a>
 
-
 ###  If you haven't worked with Python, or you already have a hexagonal map shapefile, you can start from this step.
 
 Composition of the regions:
@@ -200,8 +199,8 @@ The hexagons will appear on the map.
 - Right-click the layer → **Show Feature Count**. You should see **51** features (50 states + DC).
 - Open the attribute table. Right-click the layer → **Open Attribute Table** It should contain the fields `id`, `state` and `abbr`.
 
-![Show_feature_coun](files/images/Show_feature_count.png)
-![Features](files/images/Features.png)
+<img src="files/images/Show_feature_count.png" width="700" />
+<img src="files/images/Features.png" width="700" />
 
 - In the bottom-right corner of QGIS, the project CRS should be **EPSG:4326**.
 
