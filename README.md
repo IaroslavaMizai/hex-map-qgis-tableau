@@ -45,12 +45,13 @@ At this point the idea felt like a real challenge. Let's go through the process 
 ## 3. Creating the Hex Map Shapefile of US States in QGIS <a id="point-3"></a>
 
 First, install QGIS. Then create a new project: in the **Project** menu, choose **New**.
-![New Project Created](files/images/Project.png)
+
+<img src="files/images/Project.png" width="700" /> 
 
 In the bottom-right corner of the window, make sure your project uses the coordinate reference system **EPSG:4326**. 
 If it doesn't, click the CRS code in the bottom-right corner, or open **Project → Properties**. In the Project Properties window, select the **CRS** tab on the left and type **EPSG:4326** into the search box.
 
-![Project Properties with EPSG:4326 selected](files/images/CRS.png)
+<img src="files/images/CRS.png" width="700" /> 
 
 > **Why EPSG:4326?** EPSG:4326 (WGS84) is the standard system of latitude and longitude coordinates, and it is exactly what Tableau expects when you import a shapefile. If your shapefile uses a different coordinate reference system (for example, one measured in meters), Tableau will place the shapes in the wrong location. This is what happened in Figure 1: the tiles ended up near point (0, 0), off the coast of Africa.
 
@@ -58,7 +59,8 @@ If it doesn't, click the CRS code in the bottom-right corner, or open **Project 
 
 Open **Plugins → Python Console → Show Editor**, paste the code, change `OUT_PATH` (the path to the folder where your files will be saved) and click **Run**.
 
-![Python Console](files/images/Python_Console.png)
+
+<img src="files/images/Python_Console.png" width="700" /> 
 
 Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
 
@@ -142,8 +144,7 @@ iface.mapCanvas().setExtent(layer.extent())
 iface.mapCanvas().refresh()
 ```
 The hexagons will appear on the map as a temporary layer.
-
-![Temp Hex](file/images/Temp_hex.png)
+<img src="files/images/Temp_layer.png" width="700" /> 
 
 ### Save the layer as a shapefile
 
@@ -192,8 +193,8 @@ If you downloaded the ready-made shapefile instead of running the Python script,
 3. Next to **Vector Dataset(s)**, click `…` and select `us_hex_map.shp`.
 4. Click **Add**, then **Close**.
 
-![Vector shape](files/images/Vector_file.png) 
-![Imported shape](files/images/Import_file.png) 
+<img src="files/images/Vector_file.png" width="700" />
+<img src="files/images/Import_file.png" width="700" /> 
 
 The hexagons will appear on the map. 
 
