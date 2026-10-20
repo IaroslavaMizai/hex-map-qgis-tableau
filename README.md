@@ -176,7 +176,7 @@ Composition of the regions:
 - **Midwest (12):** ND, SD, NE, KS, MN, IA, MO, WI, IL, IN, MI, OH
 - **Northeast (9):** ME, NH, VT, MA, RI, CT, NY, NJ, PA
 - **South (16):** TX, OK, AR, LA, MS, AL, TN, KY, WV, VA, MD, DE, NC, SC, GA, FL
-- ** Washington DC (DC)
+- **Washington DC:** (DC)
 
 We will use **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM) as an example. The steps are the same for the other regions.
 
