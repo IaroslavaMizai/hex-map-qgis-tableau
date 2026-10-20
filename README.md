@@ -62,6 +62,85 @@ Open **Plugins → Python Console → Show Editor**, paste the code, change `OUT
 
 Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
 
+```python
+import math
+from qgis.core import (QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
+                       QgsField, QgsProject)
+from qgis.PyQt.QtCore import QVariant
+
+# Settings
+
+SIZE = 0.5       # hexagon radius in degrees
+GAP = 1          # 1 = hexagons touch edge to edge, no gaps
+
+# Tile grid layout: (abbreviation, state name, row, column)
+# Rows are counted from the top (row 0). Odd rows are shifted half a hexagon to the right.
+STATES = [
+    ("AK","Alaska",0,0), ("ME","Maine",0,11),
+    ("VT","Vermont",1,9), ("NH","New Hampshire",1,10),
+    ("WA","Washington",2,1), ("MT","Montana",2,2), ("ND","North Dakota",2,3),
+    ("MN","Minnesota",2,4), ("WI","Wisconsin",2,5), ("MI","Michigan",2,7),
+    ("NY","New York",2,9), ("MA","Massachusetts",2,10), ("RI","Rhode Island",2,11),
+    ("ID","Idaho",3,1), ("WY","Wyoming",3,2), ("SD","South Dakota",3,3),
+    ("IA","Iowa",3,4), ("IL","Illinois",3,5), ("IN","Indiana",3,6),
+    ("OH","Ohio",3,7), ("PA","Pennsylvania",3,8), ("NJ","New Jersey",3,9),
+    ("CT","Connecticut",3,10),
+    ("OR","Oregon",4,1), ("NV","Nevada",4,2), ("CO","Colorado",4,3),
+    ("NE","Nebraska",4,4), ("MO","Missouri",4,5), ("KY","Kentucky",4,6),
+    ("WV","West Virginia",4,7), ("MD","Maryland",4,8), ("DE","Delaware",4,9),
+    ("CA","California",5,1), ("AZ","Arizona",5,2), ("UT","Utah",5,3),
+    ("KS","Kansas",5,4), ("AR","Arkansas",5,5), ("TN","Tennessee",5,6),
+    ("VA","Virginia",5,7), ("NC","North Carolina",5,8),
+    ("DC","District of Columbia",5,11),
+    ("NM","New Mexico",6,3), ("OK","Oklahoma",6,4), ("LA","Louisiana",6,5),
+    ("MS","Mississippi",6,6), ("AL","Alabama",6,7), ("SC","South Carolina",6,8),
+    ("TX","Texas",7,3), ("GA","Georgia",7,7),
+    ("HI","Hawaii",8,0), ("FL","Florida",8,8),
+]
+
+# Geometry Helpers
+W = math.sqrt(3) * SIZE    # width of a pointy-top hexagon
+H_STEP = 1.5 * SIZE        # vertical distance between rows
+R = SIZE * GAP             # drawn radius
+SNAP = 1e-6                # snap vertices to a grid so neighbouring edges match exactly
+
+def hexagon(cx, cy):
+    """Build one pointy-top hexagon polygon centred at (cx, cy)."""
+    pts = [QgsPointXY(cx + R*math.cos(math.radians(60*i-30)),
+                      cy + R*math.sin(math.radians(60*i-30))) for i in range(6)]
+    pts.append(pts[0])   # close the ring
+    return QgsGeometry.fromPolygonXY([pts]).snappedToGrid(SNAP, SNAP)
+
+# Remove layers left from previous runs so they don't overlap on the map
+for old in QgsProject.instance().mapLayersByName("us_hex_map"):
+    QgsProject.instance().removeMapLayer(old.id())
+
+# Create temporary layer
+
+layer = QgsVectorLayer("Polygon?crs=EPSG:4326", "us_hex_map", "memory")
+pr = layer.dataProvider()
+pr.addAttributes([QgsField("id", QVariant.Int),
+                  QgsField("state", QVariant.String, len=30),
+                  QgsField("abbr", QVariant.String, len=2)])
+layer.updateFields()
+
+# One Hexagon per State
+feats = []
+for i, (abbr, name, row, col) in enumerate(STATES, start=1):
+    f = QgsFeature(layer.fields())
+    # x = column * width (+ half a width on odd rows); y goes down with each row
+    f.setGeometry(hexagon(col*W + (row % 2)*W/2, -row*H_STEP))
+    f.setAttributes([i, name, abbr])
+    feats.append(f)
+pr.addFeatures(feats)
+layer.updateExtents()
+print("Hexagons created:", layer.featureCount())   # should print 51
+
+# Show the Layer on the Map
+QgsProject.instance().addMapLayer(layer)
+iface.mapCanvas().setExtent(layer.extent())
+iface.mapCanvas().refresh()
+```
 
 -----------------------------------------------------------------------------
 ## 7. Author and License <a id="point-7"></a>
