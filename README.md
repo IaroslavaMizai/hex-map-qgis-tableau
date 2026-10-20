@@ -199,7 +199,7 @@ The hexagons will appear on the map.
 - Right-click the layer → **Show Feature Count**. You should see **51** features (50 states + DC).
 - Open the attribute table. Right-click the layer → **Open Attribute Table** It should contain the fields `id`, `state` and `abbr`.
 
-<img src="files/images/Show_feature_count.png" width="700" />
+<img src="files/images/Show_feature_count.png" width="400" />
 <img src="files/images/Features.png" width="700" />
 
 - In the bottom-right corner of QGIS, the project CRS should be **EPSG:4326**.
@@ -216,7 +216,7 @@ The hexagons will appear on the map.
 ![Select Features](files/images/Select_features.png) 
 
 3. Check how many are selected at the bottom of the QGIS window (or **Layer → Show Selected Features Count**). For West there should be 11.
-4. 
+   
 ![West States](files/images/West_states.png) 
 
 #### 3. Dissolve the selection
