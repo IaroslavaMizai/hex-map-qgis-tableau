@@ -306,8 +306,8 @@ from qgis.PyQt.QtCore import QVariant
 
 # Settings
 
-SRC_PATH   = "data/us_hex_map.shp"   # the hexagon shapefile (one hexagon per state)
-CSV_PATH   = "data/regions.csv"      # table: state abbreviation -> region
+SRC_PATH   = "C:/path/to/hex-map-qgis-tableau/data/us_hex_map.shp"   # the hexagon shapefile (one hexagon per state)
+CSV_PATH   = "C:/path/to/hex-map-qgis-tableau/data/regions.csv"      # table: state abbreviation -> region
 KEY_FIELD  = "abbr"      # field in the shapefile used to match states with the CSV
 CSV_KEY    = "abbr"      # CSV column with the state abbreviation
 CSV_REGION = "region"    # CSV column with the region name
