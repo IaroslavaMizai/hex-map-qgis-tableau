@@ -42,7 +42,28 @@ In short, I needed **two maps**: one with hexagons (states) and one with regions
 
 At this point the idea felt like a real challenge. Let's go through the process step by step, using a simplified sample dataset with number of calls by states.
 
+## 3. Creating the Hex Map Shapefile of US States in QGIS <a id="point-3"></a>
 
+First, install QGIS. Then create a new project: in the **Project** menu, choose **New**.
+![New Project Created](files/images/Project.png)
+
+In the bottom-right corner of the window, make sure your project uses the coordinate reference system **EPSG:4326**. 
+If it doesn't, click the CRS code in the bottom-right corner, or open **Project → Properties**. In the Project Properties window, select the **CRS** tab on the left and type **EPSG:4326** into the search box.
+
+![Project Properties with EPSG:4326 selected](files/images/CRS.png)
+
+> **Why EPSG:4326?** EPSG:4326 (WGS84) is the standard system of latitude and longitude coordinates, and it is exactly what Tableau expects when you import a shapefile. If your shapefile uses a different coordinate reference system (for example, one measured in meters), Tableau will place the shapes in the wrong location. This is what happened in Figure 1: the tiles ended up near point (0, 0), off the coast of Africa.
+
+> **Not familiar with Python?** You can download a ready-made `.shp` file [here](#) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
+
+Open **Plugins → Python Console → Show Editor**, paste the code, change `OUT_PATH` (the path to the folder where your files will be saved) and click **Run**.
+
+![Python Console](files/images/Python_Console.png)
+
+Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
+
+
+-----------------------------------------------------------------------------
 ## 7. Author and License <a id="point-7"></a>
 
 **Author:** Iaroslava Mizai
