@@ -172,13 +172,13 @@ QGIS will add the saved shapefile to your project. Use this file in the next ste
 Composition of the regions:
 
 
-- **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM,AK, HI)
+- **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM, AK, HI)
 - **Midwest (12):** ND, SD, NE, KS, MN, IA, MO, WI, IL, IN, MI, OH
 - **Northeast (9):** ME, NH, VT, MA, RI, CT, NY, NJ, PA
 - **South (16):** TX, OK, AR, LA, MS, AL, TN, KY, WV, VA, MD, DE, NC, SC, GA, FL
 - **Washington DC:** (DC)
 
-We will use **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM) as an example. The steps are the same for the other regions.
+We will use **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM, AK, HI) as an example. The steps are the same for the other regions.
 
 #### Preparation
 
