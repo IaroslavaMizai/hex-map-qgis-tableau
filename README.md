@@ -395,6 +395,102 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 > **Note:** temporary layers are lost if you close QGIS Project without saving. Export the layer before closing.
 
+### 5. Import the map into Tableau <a id="point-5"></a>
+
+> Before you start, make sure that all the shapefiles you created earlier (`.shp`) and their supporting files (`.shx`, `.dbf`, `.prj`) are stored together in one folder.
+
+#### States map
+
+1. Create a new project in Tableau Public and import `us_hex_map.shp`.
+2. Join it with `regions.csv` on the common column `state`. Join type: **Left Join**.
+
+<img src="files/images/Tableau_import_data.png" width="700" />
+
+3. On the **Marks** card, drag **Geometry** and `state` to **Detail**, `calls` to **Color**, and `abbr` to **Label**.
+4. Rename the sheet to **States**.
+
+<img src="files/images/Tableau_State_map.png" width="700" />
+
+#### Regions map
+
+1. Import `us_regions.shp` in the same way.
+2. Link the two data sources on the common field `region` (**Use as linking fields**).
+3. On the **Marks** card, drag **Geometry** and `region` to **Detail**, `calls` to **Color**, and `region` to **Label**.
+4. Rename the sheet to **Regions**.
+
+<img src="files/images/Tableau_Region_map.png" width="700" />
+
+#### Remove the background
+
+1. On both sheets, open the **Format** menu and set the **Worksheet** shading to **None**.
+
+<img src="files/images/Tableau_State_map_clean.png" width="700" />
+
+2. Go to **Map → Background Layers** and uncheck all the **Background Map Layers**.
+3. Remove the titles on both sheets.
+
+### 6. Drill-down effect for the map <a id="point-6"></a>
+
+#### Parameter and filters
+
+1. Create a parameter called **Select Region** with the default value **South**.
+
+<img src="files/images/Select_region_parameter.png" width="700" />
+
+2. Create a calculated field **Parameter Filter for States Map** with the formula `[Select Region]="All"` and add it to the filters on the **States** sheet.
+
+<img src="files/images/State_filter.png" width="700" />
+
+3. Drag the field to **Filters**. In the filter window, choose **Custom value list**, type `True`, click the plus (cross) icon on the right, and save.
+
+<img src="files/images/State_filter2.png" width="700" />
+
+The map will disappear. This is expected, because the default value of **Select Region** is South.
+
+4. Create a calculated field **Parameter Filter for Region Map** with the formula `[region]=[Select Region]` and add it to the filters on the **Regions** sheet in the same way, selecting `True`. As a result you will see the South region map (because South is the default parameter value).
+
+#### Dashboard
+
+1. Create a dashboard called **Map**. Place both sheets (**States** and **Regions**) in a vertical container. Only the **Regions** map will be visible, because the **States** sheet is empty for now.
+2. Remove all the legends and filters that Tableau added automatically when you dragged the sheets into the container.
+3. Add a text object with the text `Drill-Down Regional Map` to the container.
+
+<img src="files/images/Container.png" width="700" />
+
+#### The drill-down action
+
+1. In the **Dashboard** menu, choose **Actions → Add Action → Change Parameter**.
+2. Name the action **Drill-Down Maps**.
+3. **Source Sheets:** **States** and **Regions**.
+4. **Target Parameter:** **Select Region**.
+5. **Source field:** `region`.
+6. **Run action on:** **Select**.
+7. **Clearing the selection will:** **Set value to**, leave the value empty.
+
+<img src="files/images/Actions.png" width="700" />
+<img src="files/images/Actions2.png" width="700" />
+
+#### The Reset button
+
+The button clears the selection and brings back the map with all regions.
+
+1. Create a sheet called **Reset Button**. On the **Marks** card, choose **Text**, add a field with the text `Reset Button` as the text, and put the field `All` on **Detail**.
+
+<img src="files/images/Reset_Button.png" width="700" />
+
+2. In the **Dashboard** menu, choose **Actions → Add Action → Change Parameter**.
+3. Name the action **Reset Maps**.
+4. **Source Sheet:** **Reset Button**.
+5. **Target Parameter:** **Select Region**.
+6. **Source field:** `All`.
+7. **Run action on:** **Select**.
+8. **Clearing the selection will:** **Set value to**, and enter `All`.
+
+<img src="files/images/Reset.png" width="700" />
+
+9. Add the **Reset Button** sheet to the dashboard and adjust its size on the **Layout** panel.
+
+You can download the finished project from Tableau Public here: [LINK TO THE DASHBOARD]
 
 
 -----------------------------------------------------------------------------
