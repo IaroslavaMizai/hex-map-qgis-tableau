@@ -30,9 +30,9 @@ Because every hexagon keeps its own border, there are too many lines between sta
 
 So I decided to aim for something like this instead:
 
-![Figure 2: Hexagons merged into regions](images/figure2.png)
+<img src="files/images/Tableau_regions.png" width="700" /> 
 
-The hexagons are merged into regions (West, Midwest, South, Northeast), each with its own data. On top of that, I wanted to add a **drill-down**: clicking on a region opens a map with fewer tiles and a state-level breakdown of the data.
+The hexagons are merged into regions (West, Midwest, South, Northeast and Washington DC), each with its own data. On top of that, I wanted to add a **drill-down**: clicking on a region opens a map with fewer tiles and a state-level breakdown of the data.
 
 ![Figure 3: Drill-down into the selected region](images/figure3.png)
 
