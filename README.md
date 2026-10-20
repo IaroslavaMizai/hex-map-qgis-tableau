@@ -282,6 +282,119 @@ Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile
 ![Merge Saved](files/images/Merge_Saved.png) 
 ![us hex map](files/images/us_hex_map.png) 
 
+
+### 4.b) Generate the shapefile with Python <a id="point-4b"></a>
+
+Make sure the temporary `us_hex_map` layer is in the Layers panel. It is the one with a small **chip icon** next to its name.
+
+If you also added the saved shapefile (a layer with the same name but without the chip icon), **uncheck it** (or remove it: right-click → **Remove Layer**), so the two layers don't overlap on the map. From here on, we work only with the temporary layer.
+
+![Temp_layer](files/images/Temp_layer.png)
+
+You can download the ready-made file here: [LINK TO THE FILE ON MY GITHUB]
+
+You will also need the table that maps states to their regions: `regions.csv` [LINK TO THE FILE ON MY GITHUB]
+
+```python
+import csv
+from qgis.core import (QgsVectorLayer, QgsFeature, QgsGeometry, QgsField,
+                       QgsProject)
+from qgis.PyQt.QtCore import QVariant
+
+# Settings
+
+SRC_PATH   = "data/us_hex_map.shp"   # the hexagon shapefile (one hexagon per state)
+CSV_PATH   = "data/regions.csv"      # table: state abbreviation -> region
+KEY_FIELD  = "abbr"      # field in the shapefile used to match states with the CSV
+CSV_KEY    = "abbr"      # CSV column with the state abbreviation
+CSV_REGION = "region"    # CSV column with the region name
+SNAP       = 1e-6        # snap vertices to a grid so neighbouring hexagons share edges exactly
+
+def drop_holes(geom):
+    """Keep only the outer boundary of each polygon (removes tiny holes that can appear after merging)."""
+    polys = []
+    for part in geom.asGeometryCollection():
+        rings = part.asPolygon()
+        if rings:
+            polys.append(QgsGeometry.fromPolygonXY([rings[0]]))   # rings[0] = outer ring, other rings = holes
+    return QgsGeometry.collectGeometry(polys) if polys else geom
+
+# Read the csv file 
+mapping = {}
+with open(CSV_PATH, encoding="utf-8-sig", newline="") as fh:
+    sample = fh.read(4096)
+    fh.seek(0)
+    dialect = csv.Sniffer().sniff(sample, delimiters=",;\t")   # detects the separator (Excel often uses ;)
+    reader = csv.DictReader(fh, dialect=dialect)
+    reader.fieldnames = [n.strip() for n in reader.fieldnames]
+    for row in reader:
+        k = (row[CSV_KEY] or "").strip().upper()
+        v = (row[CSV_REGION] or "").strip()
+        if k and v:
+            mapping[k] = v
+print("Rows in CSV:", len(mapping))   # should print 51
+
+# Open the hexagon shape file and group the hexagons by region 
+
+src = QgsVectorLayer(SRC_PATH, "src", "ogr")
+if not src.isValid():
+    raise Exception("Could not open " + SRC_PATH)   # check the path
+
+groups, missing = {}, []
+for f in src.getFeatures():
+    key = str(f[KEY_FIELD]).strip().upper()
+    region = mapping.get(key)
+    if region is None:
+        missing.append(key)   # state not found in the CSV
+        continue
+    groups.setdefault(region, []).append(f.geometry().snappedToGrid(SNAP, SNAP))
+if missing:
+    print("WARNING, these states are not in the CSV (skipped):", missing)
+
+# Merge the hexagons of each region  
+
+out = QgsVectorLayer("MultiPolygon?crs=EPSG:4326", "us_regions", "memory")   # temporary layer for the result
+pr = out.dataProvider()
+pr.addAttributes([QgsField("region", QVariant.String, len=40),
+                  QgsField("n_states", QVariant.Int)])   # n_states = number of states in the region
+out.updateFields()
+
+feats = []
+for region, geoms in groups.items():
+    merged = drop_holes(QgsGeometry.unaryUnion(geoms))   # union = dissolve the hexagons into one shape
+    f = QgsFeature(out.fields())
+    f.setGeometry(merged)
+    f.setAttributes([region, len(geoms)])
+    feats.append(f)
+    print(" ", region, "->", len(geoms), "states")
+pr.addFeatures(feats)
+out.updateExtents()
+
+# Show the temporart layer 
+
+# Remove a previous "us_regions" layer first, so the layers don't overlap
+for old in QgsProject.instance().mapLayersByName("us_regions"):
+    QgsProject.instance().removeMapLayer(old.id())
+
+QgsProject.instance().addMapLayer(out)
+iface.mapCanvas().setExtent(out.extent())
+iface.mapCanvas().refresh()
+```
+
+### Save the regions layer as a shapefile
+
+The `us_regions` layer created by the script is temporary: it lives only in memory (you will see a small chip icon next to it). To keep it and use it in Tableau:
+
+1. Right-click the `us_regions` layer → **Export → Save Features As…**
+2. **Format:** ESRI Shapefile
+3. **File name:** click `…` and choose the folder and name, for example `us_regions.shp`
+4. **CRS:** EPSG:4326 (WGS 84)
+5. Click **OK**.
+
+> **Note:** temporary layers are lost if you close QGIS Project without saving. Export the layer before closing.
+
+
+
 -----------------------------------------------------------------------------
 ## 7. Author and License <a id="point-7"></a>
 
