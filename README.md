@@ -19,12 +19,12 @@ A classic US map can be misleading: large states with minimal data visually domi
 
 ## 2. The Challenge: Regions on a Hex Map <a id="point-2"></a>
 
-Recently, I created a **Call Center Dashboard** in Tableau https://public.tableau.com/views/CallCenterDashboard_17482539625320/CHANNEL?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+Recently, I created a [**Call Center Dashboard**](https://public.tableau.com/views/CallCenterDashboard_17482539625320/CHANNEL?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) in Tableau 
 , where I needed this type of US map. The task turned out to be more interesting than simply drawing a standard map. The idea was to show different communication channels, with each channel having its own map, and each map divided into regions. Dashboard space was tight, so the map had to be very compact.
 
 My first thought was the obvious one: build the hex map directly in Tableau, which even has dedicated functions for this. However, this approach has limitations. Here is what I got in Tableau:
 
-![Figure 1: Hex map of states built in Tableau](images/figure1.png)
+<img src="files/images/Tableau_regions_wrong.png" width="700" /> 
 
 Because every hexagon keeps its own border, there are too many lines between states that belong to the same region. This adds unnecessary visual noise.
 
