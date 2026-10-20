@@ -1,0 +1,52 @@
+abbr;state;region;calls
+WA;Washington;West;1100
+OR;Oregon;West;1200
+CA;California;West;4300
+NV;Nevada;West;1300
+ID;Idaho;West;4500
+MT;Montana;West;7500
+WY;Wyoming;West;5500
+UT;Utah;West;4060
+CO;Colorado;West;6043
+AZ;Arizona;West;7040
+NM;New Mexico;West;6700
+AK;Alaska;West;2367
+HI;Hawaii;West;3560
+ND;North Dakota;Midwest;7890
+SD;South Dakota;Midwest;1345
+NE;Nebraska;Midwest;2345
+KS;Kansas;Midwest;5670
+MN;Minnesota;Midwest;4679
+IA;Iowa;Midwest;3330
+MO;Missouri;Midwest;3346
+WI;Wisconsin;Midwest;6669
+IL;Illinois;Midwest;8906
+IN;Indiana;Midwest;4000
+MI;Michigan;Midwest;1000
+OH;Ohio;Midwest;5900
+ME;Maine;Northeast;1300
+NH;New Hampshire;Northeast;4500
+VT;Vermont;Northeast;5670
+MA;Massachusetts;Northeast;3496
+RI;Rhode Island;Northeast;2500
+CT;Connecticut;Northeast;2222
+NY;New York;Northeast;5656
+NJ;New Jersey;Northeast;6789
+PA;Pennsylvania;Northeast;1239
+TX;Texas;South;8335
+OK;Oklahoma;South;8905
+AR;Arkansas;South;1356
+LA;Louisiana;South;4590
+MS;Mississippi;South;6704
+AL;Alabama;South;3908
+TN;Tennessee;South;2004
+KY;Kentucky;South;3890
+WV;West Virginia;South;3895
+VA;Virginia;South;1267
+MD;Maryland;South;3489
+DE;Delaware;South;7788
+NC;North Carolina;South;3499
+SC;South Carolina;South;5510
+GA;Georgia;South;3000
+FL;Florida;South;2110
+DC;District of Columbia;Washington DC;2300
