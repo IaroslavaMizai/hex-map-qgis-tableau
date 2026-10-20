@@ -262,7 +262,7 @@ All regions are ready.
 
 ![Regions](files/images/Regions.png) 
 
-#### Step 5. Merge the layers into one
+#### 6. Merge the layers into one
 
 1. **Processing Toolbox → Merge vector layers.**
 
