@@ -207,7 +207,7 @@ The hexagons will appear on the map.
 
 > **Note:** a layer added from a file is a **permanent** layer (no chip icon). If you also created the temporary layer with the Python script, uncheck or remove one of them so they don't overlap.
  
-![Temp_layer](files/images/Temp_layer.png) 
+![Temp_layer](files/images/Temp_layer.png)
 
 #### 2. Select the states of one region
 
