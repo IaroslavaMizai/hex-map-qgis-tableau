@@ -197,8 +197,6 @@ If you downloaded the ready-made shapefile instead of running the Python script,
 
 The hexagons will appear on the map. 
 
->(**Alternative:** open the **Browser** panel, find the folder, and drag `us_hex_map.shp` onto the map canvas.)
-
 **Check that it loaded correctly:**
 - Right-click the layer → **Show Feature Count**. You should see **51** features (50 states + DC).
 - Open the attribute table. Right-click the layer → **Open Attribute Table** It should contain the fields `id`, `state` and `abbr`.
@@ -288,13 +286,12 @@ Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile
 
 ### 4.b) Generate the shapefile with Python <a id="point-4b"></a>
 
-Make sure the temporary `us_hex_map` layer is in the Layers panel. It is the one with a small **chip icon** next to its name.
+This script reads two files from your computer, so before running it make sure you have:
 
-If you also added the saved shapefile (a layer with the same name but without the chip icon), **uncheck it** (or remove it: right-click → **Remove Layer**), so the two layers don't overlap on the map. From here on, we work only with the temporary layer.
+1. **`us_hex_map.shp`** (with its `.shx`, `.dbf` and `.prj` files). You either saved it in Section 3 (**Export → Save Features As…**) or downloaded the ready-made version.
+2. **`regions.csv`**, the table that maps each state to its region.
 
-![Temp_layer](files/images/Temp_layer.png)
-
-You can download the ready-made file here: [LINK TO THE FILE ON MY GITHUB]
+Keep both files in one folder, for example the `data` folder of this repository.
 
 You will also need the table that maps states to their regions: `regions.csv` [LINK TO THE FILE ON MY GITHUB]
 
