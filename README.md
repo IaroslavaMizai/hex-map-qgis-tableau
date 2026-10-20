@@ -141,6 +141,23 @@ QgsProject.instance().addMapLayer(layer)
 iface.mapCanvas().setExtent(layer.extent())
 iface.mapCanvas().refresh()
 ```
+The hexagons will appear on the map as a temporary layer.
+
+![Temp Hex](images/Temp_hex.png)
+
+### Save the layer as a shapefile
+
+The layer created by the script is temporary (it lives only in memory, you will see a small chip icon next to it). To keep it:
+1. Right-click the `us_hex_map` layer → **Export → Save Features As…**
+2. **Format:** ESRI Shapefile
+3. **File name:** click `…` and choose the folder and name, for example `us_hex_map.shp`
+4. **CRS:** EPSG:4326 (WGS 84)
+5. Click **OK**.
+6. 
+![Export us hex map](images/Export_us_hex_map.png)
+![Save us hex map](images/Save_us_hex_map.png) 
+QGIS will add the saved shapefile to your project. Use this file in the next steps and in Tableau.
+
 
 -----------------------------------------------------------------------------
 ## 7. Author and License <a id="point-7"></a>
