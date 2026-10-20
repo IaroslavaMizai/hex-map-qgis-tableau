@@ -1,4 +1,19 @@
-## Author and License
+# Hex Tile Maps with Regions: From QGIS to Tableau Public
+
+## 📝Table of Contents
+1. [What Is a Hex Tile Map](#point-1)
+2. [The Challenge: Regions on a Hex Map](#point-2)
+3. [Creating the Hex Map Shapefile of US States](#point-3)
+4. [Map with regions](#point-4)
+	4.a) [Merged hexagons] (#point-4a)
+	4.b) [Generate the shapefile with Python] (#point-4b)
+5. [Import map into Tableau](#point-5)
+6. [Drill-Down effect for map](#point-6)
+7. [Author and License](#point-7)
+
+
+
+## 7. Author and License <a id="point-7"></a>
 
 **Author:** Iaroslava Mizai
 
