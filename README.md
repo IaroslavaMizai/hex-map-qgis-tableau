@@ -5,11 +5,11 @@
 2. [The Challenge: Regions on a Hex Map](#point-2)
 3. [Creating the Hex Map Shapefile of US States](#point-3)
 4. [Map with regions](#point-4)
-	4.a) [Merged hexagons] (#point-4a)
-	4.b) [Generate the shapefile with Python] (#point-4b)
-5. [Import map into Tableau](#point-5)
-6. [Drill-Down effect for map](#point-6)
-7. [Author and License](#point-7)
+   - 4.a) [Merged hexagons](#point-4a)
+   - 4.b) [Generate the shapefile with Python](#point-4b)
+6. [Import map into Tableau](#point-5)
+7. [Drill-Down effect for map](#point-6)
+8. [Author and License](#point-7)
 
 
 
