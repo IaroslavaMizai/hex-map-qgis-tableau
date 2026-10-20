@@ -153,9 +153,12 @@ The layer created by the script is temporary (it lives only in memory, you will 
 3. **File name:** click `…` and choose the folder and name, for example `us_hex_map.shp`
 4. **CRS:** EPSG:4326 (WGS 84)
 5. Click **OK**.
-6. 
-![Export us hex map](images/Export_us_hex_map.png)
-![Save us hex map](images/Save_us_hex_map.png) 
+   
+<p align="center">
+  <img src="files/images/Export_us_hex_map.png" width="44%" alt="Export" />
+  <img src="files/images/Save_us_hex_map.png" width="50%" alt="Save" />
+</p>
+
 QGIS will add the saved shapefile to your project. Use this file in the next steps and in Tableau.
 
 
