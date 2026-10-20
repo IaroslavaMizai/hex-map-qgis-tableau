@@ -143,7 +143,7 @@ iface.mapCanvas().refresh()
 ```
 The hexagons will appear on the map as a temporary layer.
 
-![Temp Hex](images/Temp_hex.png)
+![Temp Hex](file/images/Temp_hex.png)
 
 ### Save the layer as a shapefile
 
@@ -161,6 +161,126 @@ The layer created by the script is temporary (it lives only in memory, you will 
 
 QGIS will add the saved shapefile to your project. Use this file in the next steps and in Tableau.
 
+
+## 4. Map with regions <a id="point-4"></a>
+
+### 4.a Merged hexagons (no coding) <a id="point-4a"></a>
+
+
+###  If you haven't worked with Python, or you already have a hexagonal map shapefile, you can start from this step.
+
+Composition of the regions:
+
+
+- **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM,AK, HI)
+- **Midwest (12):** ND, SD, NE, KS, MN, IA, MO, WI, IL, IN, MI, OH
+- **Northeast (9):** ME, NH, VT, MA, RI, CT, NY, NJ, PA
+- **South (16):** TX, OK, AR, LA, MS, AL, TN, KY, WV, VA, MD, DE, NC, SC, GA, FL
+- ** Washington DC (DC)
+
+We will use **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM) as an example. The steps are the same for the other regions.
+
+#### Preparation
+
+### 1. Import `us_hex_map` into QGIS
+
+If you downloaded the ready-made shapefile instead of running the Python script, add it to QGIS like this.
+
+1. **Unzip the download** (if it came as a `.zip`) and keep all the files together in one folder: `us_hex_map.shp`, `.shx`, `.dbf`, `.prj` (and `.cpg` if present). QGIS needs them all, not just the `.shp`.
+
+2. In QGIS, go to **Layer → Add Layer → Add Vector Layer…** (or press **Ctrl+Shift+V**).
+3. Next to **Vector Dataset(s)**, click `…` and select `us_hex_map.shp`.
+4. Click **Add**, then **Close**.
+
+![Vector shape/Vector_file.png) 
+![Imported shape/Import_file.png) 
+
+The hexagons will appear on the map. 
+
+>(**Alternative:** open the **Browser** panel, find the folder, and drag `us_hex_map.shp` onto the map canvas.)
+
+**Check that it loaded correctly:**
+- Right-click the layer → **Show Feature Count**. You should see **51** features (50 states + DC).
+- Open the attribute table. Right-click the layer → **Open Attribute Table** It should contain the fields `id`, `state` and `abbr`.
+
+![Show_feature_count/Show_feature_count.png)
+![Features/Features.png)
+
+- In the bottom-right corner of QGIS, the project CRS should be **EPSG:4326**.
+
+> **Note:** a layer added from a file is a **permanent** layer (no chip icon). If you also created the temporary layer with the Python script, uncheck or remove one of them so they don't overlap.
+ 
+![Temp_layer](files/images/Temp_layer.png) 
+
+#### 2. Select the states of one region
+
+1. On the toolbar, choose **Select Features by Area or Single Click** (the yellow square with a cursor).
+2. Click the first state, then click the rest while holding **Ctrl**.
+
+![Select Features](files/images/Select_features.png) 
+
+3. Check how many are selected at the bottom of the QGIS window (or **Layer → Show Selected Features Count**). For West there should be 11.
+4. 
+![West States](files/images/West_states.png) 
+
+#### 3. Dissolve the selection
+
+1. Open the **Processing Toolbox** (Ctrl+Alt+T) and find **Dissolve**.
+
+![Dissolve](files/images/Dissolve.png) 
+
+2. Set it up:
+   - **Input layer:** `us_hex_map`
+   - Turn on **Selected features only**
+   - **Dissolve field(s):** leave empty
+   - **Dissolved:** save to a  temporary file **West**
+
+3. Click **Run** then close Dissolve window.
+
+You will get a new layer with a single West shape.
+
+![West Region](files/images/West_region.png) 
+
+#### 4. Add the region name
+
+1. Select the new layer and open the attribute table.
+2. Turn on editing (the pencil) and add a field with the **Field Calculator** (Ctrl+I):
+
+![West Region Edit](file/ images/West_edit_features.png) 
+   - **Output field name:** `region`
+   - **Output field type:** Text (string), length 10 
+   - **Expression:** `'West'`
+3. Save the edits and turn editing off (the pencil again). 
+
+![West_add_features](files/images/West_add_features.png) 
+![West_add_features](files/images/West_add_features2.png) 
+
+#### 5. Repeat for the other regions
+
+Repeat Steps 1–3 for Midwest, Northeast and South. Do Washington DC separately in the same way, but set length 15.
+All regions are ready.
+
+![Regions](files/images/Regions.png) 
+
+#### Step 5. Merge the layers into one
+
+1. **Processing Toolbox → Merge vector layers.**
+
+![Merge Sart](files/images/Merge_Sart.png)
+
+2. **Input layers:** select all region layers (West, Midwest, Northeast, South, Washington DC).
+3. **Destination CRS:** EPSG:4326.
+4. Click **Run**.
+![Merge Sart1](files/images/Merge_Sart1.png) 
+![Merge Sart2](files/images/Merge_Sart2.png) 
+![Merge Sart3](files/images/Merge_Sart3.png) 
+![Merge Sart4](files/images/Merge_Sart4.png) 
+
+#### 7. Clean up and export
+
+Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile → CRS EPSG:4326 → Keep only the `region` field → **OK**.
+![Merge Saved](files/images/Merge_Saved.png) 
+![us hex map](files/images/us_hex_map.png) 
 
 -----------------------------------------------------------------------------
 ## 7. Author and License <a id="point-7"></a>
