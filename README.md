@@ -192,8 +192,8 @@ If you downloaded the ready-made shapefile instead of running the Python script,
 3. Next to **Vector Dataset(s)**, click `…` and select `us_hex_map.shp`.
 4. Click **Add**, then **Close**.
 
-![Vector shape/Vector_file.png) 
-![Imported shape/Import_file.png) 
+![Vector shape](files/images/Vector_file.png) 
+![Imported shape](files/images/Import_file.png) 
 
 The hexagons will appear on the map. 
 
@@ -203,8 +203,8 @@ The hexagons will appear on the map.
 - Right-click the layer → **Show Feature Count**. You should see **51** features (50 states + DC).
 - Open the attribute table. Right-click the layer → **Open Attribute Table** It should contain the fields `id`, `state` and `abbr`.
 
-![Show_feature_count/Show_feature_count.png)
-![Features/Features.png)
+![Show_feature_coun](files/images/Show_feature_count.png)
+![Features](files/images/Features.png)
 
 - In the bottom-right corner of QGIS, the project CRS should be **EPSG:4326**.
 
