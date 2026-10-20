@@ -242,7 +242,8 @@ You will get a new layer with a single West shape.
 1. Select the new layer and open the attribute table.
 2. Turn on editing (the pencil) and add a field with the **Field Calculator** (Ctrl+I):
 
-![West Region Edit](file/ images/West_edit_features.png) 
+![West Region Edit](file/images/West_edit_features.png) 
+
    - **Output field name:** `region`
    - **Output field type:** Text (string), length 10 
    - **Expression:** `'West'`
