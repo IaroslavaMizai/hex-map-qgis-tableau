@@ -57,8 +57,7 @@ If it doesn't, click the CRS code in the bottom-right corner, or open **Project 
 
 **Not familiar with Python?** You can download a ready-made `.shp` file [here](#) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
 
-Open **Plugins → Python Console → Show Editor**, paste the code, change `OUT_PATH` (the path to the folder where your files will be saved) and click **Run**.
-
+Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
 
 <img src="files/images/Python_Console.png" width="700" /> 
 
