@@ -376,16 +376,19 @@ QgsProject.instance().addMapLayer(out)
 iface.mapCanvas().setExtent(out.extent())
 iface.mapCanvas().refresh()
 ```
+<img src="files/images/US_regions.png" width="700" /> 
 
 ### Save the regions layer as a shapefile
 
 The `us_regions` layer created by the script is temporary: it lives only in memory (you will see a small chip icon next to it). To keep it and use it in Tableau:
-
 1. Right-click the `us_regions` layer → **Export → Save Features As…**
 2. **Format:** ESRI Shapefile
 3. **File name:** click `…` and choose the folder and name, for example `us_regions.shp`
 4. **CRS:** EPSG:4326 (WGS 84)
 5. Click **OK**.
+   
+<img src="files/images/US_regions_export.png" width="700" /> 
+<img src="files/images/US_regions_export2.png" width="700" /> 
 
 > **Note:** temporary layers are lost if you close QGIS Project without saving. Export the layer before closing.
 
