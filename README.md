@@ -326,7 +326,7 @@ from qgis.PyQt.QtCore import QVariant
 
 # Settings
 
-SRC_PATH   = "C:/path/data/us_hex_map/us_hex_map.shp"   # the hexagon shapefile (one hexagon per state)
+SRC_PATH   = "C:/path/data/us_hex_map/us_hex_map.shp"   # the hexagon shapefile (1 hexagon per state)
 CSV_PATH   = "C:/path/data/regions.csv"      # table: state abbreviation -> region
 KEY_FIELD  = "abbr"      # field in the shapefile used to match states with the CSV
 CSV_KEY    = "abbr"      # CSV column with the state abbreviation
@@ -347,7 +347,7 @@ mapping = {}
 with open(CSV_PATH, encoding="utf-8-sig", newline="") as fh:
     sample = fh.read(4096)
     fh.seek(0)
-    dialect = csv.Sniffer().sniff(sample, delimiters=",;\t")   # detects the separator (Excel often uses ;)
+    dialect = csv.Sniffer().sniff(sample, delimiters=",;\t")   # detects the separator
     reader = csv.DictReader(fh, dialect=dialect)
     reader.fieldnames = [n.strip() for n in reader.fieldnames]
     for row in reader:
@@ -393,7 +393,7 @@ for region, geoms in groups.items():
 pr.addFeatures(feats)
 out.updateExtents()
 
-# Show the temporart layer 
+# Show the temporart layer
 
 # Remove a previous "us_regions" layer first, so the layers don't overlap
 for old in QgsProject.instance().mapLayersByName("us_regions"):
