@@ -231,21 +231,22 @@ The hexagons will appear on the map.
 ### 2. Select the states of one region
 
    a. On the toolbar, choose **Select Features by Area or Single Click** (the yellow square with a cursor).
+   
    b. Click the first state, then click the rest while holding **Ctrl**.
 
 ![Select Features](files/images/Select_features.png) 
 
-c. Check how many are selected at the bottom of the QGIS window (or **Layer → Show Selected Features Count**). For West there should be 11.
+   c. Check how many are selected at the bottom of the QGIS window (or **Layer → Show Selected Features Count**). For West there should be 11.
    
 ![West States](files/images/West_states.png) 
 
 #### 3. Dissolve the selection
 
-a. Open the **Processing Toolbox** (Ctrl+Alt+T) and find **Dissolve**.
+   a. Open the **Processing Toolbox** (Ctrl+Alt+T) and find **Dissolve**.
 
 ![Dissolve](files/images/Dissolve.png) 
 
-b. Set it up:
+   b. Set it up:
    - **Input layer:** `us_hex_map`
    - Turn on **Selected features only**
    - **Dissolve field(s):** leave empty
@@ -259,9 +260,9 @@ You will get a new layer with a single West shape.
 
 #### 4. Add the region name
 
-a. Select the new layer and open the attribute table.
+   a. Select the new layer and open the attribute table.
 
-b. Turn on editing (the pencil) and add a field with the **Field Calculator** (Ctrl+I):
+   b. Turn on editing (the pencil) and add a field with the **Field Calculator** (Ctrl+I):
 
 <img src="files/images/West_edit_features.png" width="700" />
 
@@ -284,12 +285,12 @@ All regions are ready.
 
 #### 6. Merge the layers into one
 
-a. **Processing Toolbox → Merge vector layers.**
+   a. **Processing Toolbox → Merge vector layers.**
 
 ![Merge Sart1](files/images/Merge_Sart1.png) 
 
-b. **Input layers:** select all region layers (West, Midwest, Northeast, South, Washington DC).
-c. Click **Run**.
+   b. **Input layers:** select all region layers (West, Midwest, Northeast, South, Washington DC).
+   c. Click **Run**.
    
 ![Merge Sart2](files/images/Merge_Sart2.png) 
 
@@ -308,8 +309,8 @@ Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile
 
 This script reads two files from your computer, so before running it make sure you have:
 
-1. **`us_hex_map.shp`** (with its `.shx`, `.dbf` and `.prj` files). You either saved it in Section 3 (**Export → Save Features As…**) or downloaded the ready-made version.
-2. **`regions.csv`**, the table that maps each state to its region.
+   1. **`us_hex_map.shp`** (with its `.shx`, `.dbf` and `.prj` files). You either saved it in Section 3 (**Export → Save Features As…**) or downloaded the ready-made version.
+   2. **`regions.csv`**, the table that maps each state to its region.
 
 Keep both files in one folder, for example the `data` folder of this repository.
 
@@ -405,11 +406,11 @@ iface.mapCanvas().refresh()
 ### Save the regions layer as a shapefile
 
 The `us_regions` layer created by the script is temporary: it lives only in memory (you will see a small chip icon next to it). To keep it and use it in Tableau:
-1. Right-click the `us_regions` layer → **Export → Save Features As…**
-2. **Format:** ESRI Shapefile
-3. **File name:** click `…` and choose the folder and name, for example `us_regions.shp`
-4. **CRS:** EPSG:4326 (WGS 84)
-5. Click **OK**.
+   1. Right-click the `us_regions` layer → **Export → Save Features As…**
+   2. **Format:** ESRI Shapefile
+   3. **File name:** click `…` and choose the folder and name, for example `us_regions.shp`
+   4. **CRS:** EPSG:4326 (WGS 84)
+   5. Click **OK**.
    
 <img src="files/images/US_regions_export.png" width="700" /> 
 <img src="files/images/US_regions_export2.png" width="700" /> 
@@ -422,22 +423,22 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 #### States map
 
-1. Create a new project in Tableau Public and import `us_hex_map.shp`.
-2. Join it with `regions.csv` on the common column `state`. Join type: **Left Join**.
+   1. Create a new project in Tableau Public and import `us_hex_map.shp`.
+   2. Join it with `regions.csv` on the common column `state`. Join type: **Left Join**.
 
 <img src="files/images/Tableau_import_data.png" width="700" />
 
-3. On the **Marks** card, drag **Geometry** and `state` to **Detail**, `calls` to **Color**, and `abbr` to **Label**.
-4. Rename the sheet to **States**.
+   3. On the **Marks** card, drag **Geometry** and `state` to **Detail**, `calls` to **Color**, and `abbr` to **Label**.
+   4. Rename the sheet to **States**.
 
 <img src="files/images/Tableau_State_map.png" width="700" />
 
 #### Regions map
 
-1. Import `us_regions.shp` in the same way.
-2. Link the two data sources on the common field `region` (**Use as linking fields**).
-3. On the **Marks** card, drag **Geometry** and `region` to **Detail**, `calls` to **Color**, and `region` to **Label**.
-4. Rename the sheet to **Regions**.
+   1. Import `us_regions.shp` in the same way.
+   2. Link the two data sources on the common field `region` (**Use as linking fields**).
+   3. On the **Marks** card, drag **Geometry** and `region` to **Detail**, `calls` to **Color**, and `region` to **Label**.
+   4. Rename the sheet to **Regions**.
 
 <img src="files/images/Tableau_Region_map.png" width="700" />
 
@@ -447,8 +448,8 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 <img src="files/images/Tableau_State_map_clean.png" width="700" />
 
-2. Go to **Map → Background Layers** and uncheck all the **Background Map Layers**.
-3. Remove the titles on both sheets.
+   2. Go to **Map → Background Layers** and uncheck all the **Background Map Layers**.
+   3. Remove the titles on both sheets.
 
 ### 6. Drill-down effect for the map <a id="point-6"></a>
 
