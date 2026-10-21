@@ -260,6 +260,7 @@ You will get a new layer with a single West shape.
 #### 4. Add the region name
 
 a. Select the new layer and open the attribute table.
+
 b. Turn on editing (the pencil) and add a field with the **Field Calculator** (Ctrl+I):
 
 <img src="files/images/West_edit_features.png" width="700" />
@@ -276,7 +277,7 @@ c. Save the edits and turn editing off (the pencil again).
 
 #### 5. Repeat for the other regions
 
-Repeat Steps 1–3 for Midwest, Northeast and South. Do Washington DC separately in the same way, but set length 15.
+Repeat Steps 1–4 for Midwest, Northeast and South. Do Washington DC separately in the same way, but set length 15.
 All regions are ready.
 
 ![Regions](files/images/Regions.png) 
