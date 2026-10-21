@@ -56,7 +56,7 @@ If it doesn't, click the CRS code in the bottom-right corner, or open **Project 
 
 > Because there is no real map under the tiles, turn the background off (**Map → Background Layers**, uncheck all layers), as shown in Step 5.
 
-**Not familiar with Python?** You can download a ready-made `.shp` file [here](#) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
+**Not familiar with Python?** You can download a ready-made `.shp` file [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
 
 Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
 
@@ -154,13 +154,32 @@ The layer created by the script is temporary (it lives only in memory, you will 
 3. **File name:** click `…` and choose the folder and name, for example `us_hex_map.shp`
 4. **CRS:** EPSG:4326 (WGS 84)
 5. Click **OK**.
-   
+
 <p align="center">
   <img src="files/images/Export_us_hex_map.png" width="44%" alt="Export" />
   <img src="files/images/Save_us_hex_map.png" width="50%" alt="Save" />
 </p>
 
-QGIS will add the saved shapefile to your project. Use this file in the next steps and in Tableau.
+5. Click **OK**.
+
+> **Tip: save the shapefile in its own folder with the same name.**
+> A shapefile is not a single file. QGIS saves several files with the same name, so it is much easier to keep them together. In the file dialog (step 3), click **New Folder**, name it `us_hex_map`, open it, and save the file as `us_hex_map.shp` inside it.
+>
+> You will get this structure:
+>
+> ```
+> us_hex_map/
+> ├── us_hex_map.shp   # the shapes (geometry)
+> ├── us_hex_map.shx   # index of the shapes
+> ├── us_hex_map.dbf   # attribute table (state, abbr, ...)
+> ├── us_hex_map.prj   # coordinate system (EPSG:4326)
+> ├── us_hex_map.cpg   # text encoding (UTF-8)
+> └── us_hex_map.qmd   # QGIS metadata (optional)
+> ```
+>
+> Keep all these files together and never move or rename only the `.shp`. QGIS and Tableau need `.shp`, `.shx`, `.dbf` and `.prj` to read the map correctly. The `.cpg` file keeps special characters readable, and the `.qmd` file is optional.
+> 
+QGIS will add the saved shapefile to your project too. Use this file in the next steps and in Tableau.
 
 
 ## 4. Map with regions <a id="point-4"></a>
