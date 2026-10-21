@@ -310,8 +310,8 @@ Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile
 
 This script reads two files from your computer, so before running it make sure you have:
 
-   1. **`us_hex_map.shp`** (with its `.shx`, `.dbf` and `.prj` files). You either saved it in Section 3 (**Export → Save Features As…**) or downloaded the ready-made version.
-   2. **`regions.csv`**, the table that maps each state to its region.
+   1. **`us_hex_map.shp`** (with its `.shx`, `.dbf` and `.prj` files). You either saved it in Section 3 (**Export → Save Features As…**) or downloaded the ready-made version  ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions).
+   2. **`regions.csv`**, the table that maps each state to its region ( [Download regions.csv  file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/blob/main/files/data/regions.csv) ).
 
 Keep both files in one folder, for example the `data` folder of this repository.
 
