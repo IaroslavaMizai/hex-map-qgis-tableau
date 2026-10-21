@@ -72,6 +72,8 @@ These two numbers are exactly the last two values of each entry in the `STATES` 
 
 > **Not familiar with Python?** You can download a ready-made `.shp` file ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
 
+Paste this code in Python Console in QGIS:
+
 ```
 import math
 from qgis.core import (QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
