@@ -448,7 +448,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 <img src="files/images/Tableau_State_map_clean.png" width="700" />
 
-   2. Go to **Map → Background Layers** and uncheck all the **Background Map Layers**.
+   2. Go to **Map → Background Layers** and uncheck all points in the **Background Map Layers**.
    3. Remove the titles on both sheets.
 
 ### 6. Drill-down effect for the map <a id="point-6"></a>
@@ -459,7 +459,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 <img src="files/images/Select_region_parameter.png" width="700" />
 
-2. Create a calculated field **Parameter Filter for States Map** with the formula `[Select Region]="All"` and add it to the filters on the **States** sheet.
+2. Create a calculated field **Parameter Filter for States Map** with the formula `[region]=[Select Region]` and add it to the filters on the **States** sheet.
 
 <img src="files/images/State_filter.png" width="700" />
 
@@ -469,7 +469,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 The map will disappear. This is expected, because the default value of **Select Region** is South.
 
-4. Create a calculated field **Parameter Filter for Region Map** with the formula `[region]=[Select Region]` and add it to the filters on the **Regions** sheet in the same way, selecting `True`. As a result you will see the South region map (because South is the default parameter value).
+4. Create a calculated field **Parameter Filter for Region Map** with the formula `[Select Region]="All"` and add it to the filters on the **Regions** sheet in the same way, selecting `True`. As a result you will see the South region map (because South is the default parameter value).
 
 #### Dashboard
 
@@ -512,7 +512,7 @@ The button clears the selection and brings back the map with all regions.
 
 9. Add the **Reset Button** sheet to the dashboard and adjust its size on the **Layout** panel.
 
-You can download the finished project from Tableau Public here: [LINK TO THE DASHBOARD]
+You can download the finished project from Tableau Public here: [Tableau Workbook]([https://public.tableau.com/views/us_region_map/Map?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/blob/main/files/data/us_region_map.twbx))
 
 ## 7. Files used in this project <a id="point-7"></a>
 
