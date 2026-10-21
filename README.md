@@ -53,6 +53,7 @@ If it doesn't, click the CRS code in the bottom-right corner, or open **Project 
 > **Why EPSG:4326?**   EPSG:4326 (WGS 84) is the standard system of latitude and longitude, and it is a safe choice for shapefiles you want to use in Tableau.
 
 > **Why are the tiles off the coast of Africa?** <img src="files/images/Tableau_State_map.png" width="700" />
+
 > A hex tile map is not tied to real geography: it is a schematic grid, not the actual state borders. In this tutorial the hexagons are built around the point (0, 0). Tableau reads these numbers as latitude and longitude, so it draws the tiles at 0° N, 0° E, in the Gulf of Guinea, which is where the Africa labels in the background come from. We build the grid near zero on purpose: close to the equator the Web Mercator projection used by Tableau barely distorts shapes, so the hexagons stay regular.
 
 > Because there is no real map under the tiles, turn the background off (**Map → Background Layers**, uncheck all layers), as shown in Step 5.
