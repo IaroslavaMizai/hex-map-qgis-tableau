@@ -62,22 +62,15 @@ If it doesn't, click the CRS code in the bottom-right corner, or open **Project 
 
 > Because there is no real map under the tiles, turn the background off (**Map → Background Layers**, uncheck all layers), as shown in Step 5.
 
+ **Not familiar with Python?** You can download a ready-made `.shp` file ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
+
  A sketch of the tile grid. Each hexagon is one state. 
  
  <img src="files/images/Hex_grid_sketch.jpg" width="550" />
 
 The two small numbers under the abbreviation are its **row** and **column** on the grid. The numbers along the top (0–11) are column numbers, and the numbers on the left (0–8) are row numbers.
 
-These two numbers are exactly the last two values of each entry in the `STATES` list in the code below:
-
-
-**Not familiar with Python?** You can download a ready-made `.shp` file ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
-
-Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
-
-<img src="files/images/Python_Console.png" width="700" /> 
-
-Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
+These two numbers are exactly the last two values of each entry in the `STATES` list in the code below
 
 ```
 import math
@@ -158,7 +151,12 @@ QgsProject.instance().addMapLayer(layer)
 iface.mapCanvas().setExtent(layer.extent())
 iface.mapCanvas().refresh()
 ```
+Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
+
+<img src="files/images/Python_Console.png" width="700" /> 
+
 The hexagons will appear on the map as a temporary layer.
+
 <img src="files/images/Temp_layer.png" width="700" /> 
 
 ### Save the layer as a shapefile
