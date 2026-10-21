@@ -41,7 +41,7 @@ I needed **two maps**: one with hexagons (states) and one with regions. However,
 
 ## 3. Creating the Hex Map Shapefile of US States in QGIS <a id="point-3"></a>
 
-First, install QGIS. Then create a new project: in the **Project** menu, choose **New**.
+First, install [**QGIS**](https://qgis.org/download/). Then create a new project: in the **Project** menu, choose **New**.
 
 <img src="files/images/Project.png" width="700" /> 
 
