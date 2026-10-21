@@ -512,7 +512,7 @@ The button clears the selection and brings back the map with all regions.
 
 9. Add the **Reset Button** sheet to the dashboard and adjust its size on the **Layout** panel.
 
-You can download the finished project here: [Tableau Workbook]([https://public.tableau.com/views/us_region_map/Map?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/blob/main/files/data/us_region_map.twbx))
+You can download the finished project here: [Tableau Project 'Drill-Down Regional Map'](https://public.tableau.com/views/us_region_map/Map?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ## 7. Files used in this project <a id="point-7"></a>
 
