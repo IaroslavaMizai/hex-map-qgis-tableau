@@ -186,7 +186,7 @@ QGIS will add the saved shapefile to your project too. Use this file in the next
 
 ### 4.a Way 1: Merged hexagons (no coding) <a id="point-4a"></a>
 
-###  If you haven't worked with Python, or you already have a hexagonal map shapefile ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ), you can start from this step.
+> If you haven't worked with Python, or you already have a hexagonal map shapefile ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ), you can start from this step.
 
 Composition of the regions:
 
@@ -260,8 +260,8 @@ You will get a new layer with a single West shape.
 
 #### 4. Add the region name
 
-1. Select the new layer and open the attribute table.
-2. Turn on editing (the pencil) and add a field with the **Field Calculator** (Ctrl+I):
+a. Select the new layer and open the attribute table.
+b. Turn on editing (the pencil) and add a field with the **Field Calculator** (Ctrl+I):
 
 <img src="files/images/West_edit_features.png" width="700" />
 
@@ -271,7 +271,7 @@ You will get a new layer with a single West shape.
 
 <img src="files/images/West_add_features.png" width="700" />
      
-3. Save the edits and turn editing off (the pencil again). 
+c. Save the edits and turn editing off (the pencil again). 
 
 <img src="files/images/West_add_features2.png" width="700" />
 
@@ -284,14 +284,13 @@ All regions are ready.
 
 #### 6. Merge the layers into one
 
-1. **Processing Toolbox → Merge vector layers.**
+a. **Processing Toolbox → Merge vector layers.**
 
-![Merge Sart](files/images/Merge_Sart.png)
-
-2. **Input layers:** select all region layers (West, Midwest, Northeast, South, Washington DC).
-3. **Destination CRS:** EPSG:4326.
-4. Click **Run**.
 ![Merge Sart1](files/images/Merge_Sart1.png) 
+
+b. **Input layers:** select all region layers (West, Midwest, Northeast, South, Washington DC).
+c. Click **Run**.
+   
 ![Merge Sart2](files/images/Merge_Sart2.png) 
 ![Merge Sart3](files/images/Merge_Sart3.png) 
 ![Merge Sart4](files/images/Merge_Sart4.png) 
