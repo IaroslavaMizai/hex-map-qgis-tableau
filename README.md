@@ -162,10 +162,10 @@ The layer created by the script is temporary (it lives only in memory, you will 
 
 5. Click **OK**.
 
-> **Tip: save the shapefile in its own folder with the same name.**
+> **Tip: save the shapefile in its own folder with the same name `us_hex_map`.**
 > A shapefile is not a single file. QGIS saves several files with the same name, so it is much easier to keep them together. In the file dialog (step 3), click **New Folder**, name it `us_hex_map`, open it, and save the file as `us_hex_map.shp` inside it.
 >
-> You will get this structure:
+> You will get this structure of your folder:
 >
 > ```
 > us_hex_map/
@@ -184,9 +184,9 @@ QGIS will add the saved shapefile to your project too. Use this file in the next
 
 ## 4. Map with regions <a id="point-4"></a>
 
-### 4.a Merged hexagons (no coding) <a id="point-4a"></a>
+### 4.a Way 1: Merged hexagons (no coding) <a id="point-4a"></a>
 
-###  If you haven't worked with Python, or you already have a hexagonal map shapefile, you can start from this step.
+###  If you haven't worked with Python, or you already have a hexagonal map shapefile [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions), you can start from this step.
 
 Composition of the regions:
 
