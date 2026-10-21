@@ -62,7 +62,7 @@ If it doesn't, click the CRS code in the bottom-right corner, or open **Project 
 
 > Because there is no real map under the tiles, turn the background off (**Map → Background Layers**, uncheck all layers), as shown in Step 5.
 
- <img src="files/images/hex_grid_sketch.png" width="600" />
+ <img src="files/images/hex_grid_sketch.jpg" width="600" />
 
 A sketch of the tile grid. Each hexagon is one state. The two small numbers under the abbreviation are its **row** and **column** on the grid. The numbers along the top (0–11) are column numbers, and the numbers on the left (0–8) are row numbers.
 
