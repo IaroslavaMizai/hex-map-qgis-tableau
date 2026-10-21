@@ -41,7 +41,7 @@ The hexagons are merged into regions (West, Midwest, South, Northeast and Washin
 
 [Tableau Project 'Drill-Down Regional Map'](https://public.tableau.com/views/us_region_map/Map?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-I needed **two maps**: one with hexagons (states) and one with regions. However, Tableau cannot merge hexagons into custom regions without internal borders. This is where my favorite tool, **QGIS**, came to the rescue, since it can produce both maps. At this point the idea felt like a real challenge. Let's go through the process step by step, using a simplified sample dataset with number of calls by states.
+I needed **two maps**: one with hexagons (states) and one with regions (merged hexagons). However, Tableau cannot merge hexagons into custom regions without internal borders. This is where my favorite tool, **QGIS**, came to the rescue, since it can produce both maps. At this point the idea felt like a real challenge. Let's go through the process step by step, using a simplified sample dataset with number of calls by states.
 
 ## 3. Creating the Hex Map Shapefile of US States in QGIS <a id="point-3"></a>
 
