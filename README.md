@@ -310,12 +310,11 @@ Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile
 
 This script reads two files from your computer, so before running it make sure you have:
 
-   1. **`us_hex_map.shp`** (with its `.shx`, `.dbf` and `.prj` files). You either saved it in Section 3 (**Export → Save Features As…**) or downloaded the ready-made version  ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions).
+   1. **`us_hex_map.shp`** (with its `.shx`, `.dbf` and `.prj` files). You either saved it in Section 3 (**Export → Save Features As…**) or downloaded the ready-made version and save in folder `us_hex_map` ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_hex_map) ).
    2. **`regions.csv`**, the table that maps each state to its region ( [Download regions.csv  file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/blob/main/files/data/regions.csv) ).
 
-Keep both files in one folder, for example the `data` folder of this repository.
+Keep both files in one folder, for example the `data`.
 
-You will also need the table that maps states to their regions: `regions.csv` [LINK TO THE FILE ON MY GITHUB]
 
 ```
 import csv
@@ -325,8 +324,8 @@ from qgis.PyQt.QtCore import QVariant
 
 # Settings
 
-SRC_PATH   = "C:/path/to/hex-map-qgis-tableau/data/us_hex_map.shp"   # the hexagon shapefile (one hexagon per state)
-CSV_PATH   = "C:/path/to/hex-map-qgis-tableau/data/regions.csv"      # table: state abbreviation -> region
+SRC_PATH   = "C:/path/data/us_hex_map/us_hex_map.shp"   # the hexagon shapefile (one hexagon per state)
+CSV_PATH   = "C:/path/data/regions.csv"      # table: state abbreviation -> region
 KEY_FIELD  = "abbr"      # field in the shapefile used to match states with the CSV
 CSV_KEY    = "abbr"      # CSV column with the state abbreviation
 CSV_REGION = "region"    # CSV column with the region name
