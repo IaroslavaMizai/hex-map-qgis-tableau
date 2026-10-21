@@ -64,7 +64,7 @@ Open **Plugins → Python Console → Show Editor**, paste the code and click **
 
 Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
 
-```python
+```
 import math
 from qgis.core import (QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
                        QgsField, QgsProject)
@@ -313,7 +313,7 @@ Keep both files in one folder, for example the `data` folder of this repository.
 
 You will also need the table that maps states to their regions: `regions.csv` [LINK TO THE FILE ON MY GITHUB]
 
-```python
+```
 import csv
 from qgis.core import (QgsVectorLayer, QgsFeature, QgsGeometry, QgsField,
                        QgsProject)
