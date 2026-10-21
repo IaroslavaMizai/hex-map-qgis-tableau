@@ -200,7 +200,7 @@ We will use **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM, AK, HI) as an 
 
 ### Preparation
 
-### 1. Import `us_hex_map` into QGIS
+#### 1. Import `us_hex_map` into QGIS
 
 If you downloaded the ready-made shapefile instead of running the Python script, add it to QGIS like this.
 
@@ -228,7 +228,7 @@ The hexagons will appear on the map.
  
 ![Temp_layer](files/images/Temp_layer.png)
 
-### 2. Select the states of one region
+#### 2. Select the states of one region
 
    a. On the toolbar, choose **Select Features by Area or Single Click** (the yellow square with a cursor).
    
@@ -290,6 +290,7 @@ All regions are ready.
 ![Merge Sart1](files/images/Merge_Sart1.png) 
 
    b. **Input layers:** select all region layers (West, Midwest, Northeast, South, Washington DC).
+   
    c. Click **Run**.
    
 ![Merge Sart2](files/images/Merge_Sart2.png) 
