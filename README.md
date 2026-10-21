@@ -190,7 +190,6 @@ QGIS will add the saved shapefile to your project too. Use this file in the next
 
 Composition of the regions:
 
-
 - **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM, AK, HI)
 - **Midwest (12):** ND, SD, NE, KS, MN, IA, MO, WI, IL, IN, MI, OH
 - **Northeast (9):** ME, NH, VT, MA, RI, CT, NY, NJ, PA
@@ -292,15 +291,17 @@ b. **Input layers:** select all region layers (West, Midwest, Northeast, South, 
 c. Click **Run**.
    
 ![Merge Sart2](files/images/Merge_Sart2.png) 
+
 ![Merge Sart3](files/images/Merge_Sart3.png) 
+
 ![Merge Sart4](files/images/Merge_Sart4.png) 
 
 #### 7. Clean up and export
 
 Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile → CRS EPSG:4326 → Keep only the `region` field → **OK**.
 ![Merge Saved](files/images/Merge_Saved.png) 
-![us hex map](files/images/us_hex_map.png) 
 
+![us hex map](files/images/us_hex_map.png) 
 
 ### 4.b) Generate the shapefile with Python <a id="point-4b"></a>
 
