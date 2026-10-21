@@ -206,9 +206,9 @@ If you downloaded the ready-made shapefile instead of running the Python script,
 
 a. **Unzip the download** (if it came as a `.zip`) and keep all the files together in one folder: `us_hex_map.shp`, `.shx`, `.dbf`, `.prj` (and `.cpg` if present). QGIS needs them all, not just the `.shp`.
 
-b. In QGIS, go to **Layer → Add Layer → Add Vector Layer…** (or press **Ctrl+Shift+V**).
-c. Next to **Vector Dataset(s)**, click `…` and select `us_hex_map.shp`.
-d. Click **Add**, then **Close**.
+   b. In QGIS, go to **Layer → Add Layer → Add Vector Layer…** (or press **Ctrl+Shift+V**).
+   c. Next to **Vector Dataset(s)**, click `…` and select `us_hex_map.shp`.
+   d. Click **Add**, then **Close**.
 
 <img src="files/images/Vector_file.png" width="700" />
 <img src="files/images/Import_file.png" width="700" /> 
@@ -230,8 +230,8 @@ The hexagons will appear on the map.
 
 ### 2. Select the states of one region
 
-a. On the toolbar, choose **Select Features by Area or Single Click** (the yellow square with a cursor).
-b. Click the first state, then click the rest while holding **Ctrl**.
+   a. On the toolbar, choose **Select Features by Area or Single Click** (the yellow square with a cursor).
+   b. Click the first state, then click the rest while holding **Ctrl**.
 
 ![Select Features](files/images/Select_features.png) 
 
