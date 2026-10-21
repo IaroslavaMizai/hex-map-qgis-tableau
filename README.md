@@ -7,9 +7,10 @@
 4. [Map with regions](#point-4)
    - 4.a) [ Way 1: Merged hexagons (no coding)](#point-4a)
    - 4.b) [ Way 2: Generate the shapefile with Python](#point-4b)
-6. [Import map into Tableau](#point-5)
-7. [Drill-Down effect for map](#point-6)
-8. [Author and License](#point-7)
+5. [Import the map into Tableau](#point-5)
+6. [Drill-Down effect for map](#point-6)
+7. [Files used in this project](#point-7)
+8. [Author and License](#point-8)
 
 ## 1. What Is a Hex Tile Map? <a id="point-1"></a>
 
@@ -492,9 +493,35 @@ The button clears the selection and brings back the map with all regions.
 
 You can download the finished project from Tableau Public here: [LINK TO THE DASHBOARD]
 
+## 7. Files used in this project <a id="point-7"></a>
 
+```
+hex-map-qgis-tableau/
+├── README.md
+├── LICENSE
+└── files/
+    ├── data/
+    │   ├── us_hex_map/          # hexagon shapefile, one hexagon per state
+    │   ├── us_regions/          # shapefile with merged regions
+    │   └── regions.csv          # state → region table
+    ├── images/                  # screenshots for this tutorial
+    └── us_region_map.twbx       # Tableau packaged workbook
+```
+
+| File | What it is | Used in |
+|---|---|---|
+| [us_hex_map](files/data/us_hex_map/) | Hex map of US states (51 hexagons). Keep `.shp`, `.shx`, `.dbf`, `.prj` and `.cpg` together. | [Section 3](#point-3), [4.a](#point-4a), [4.b](#point-4b) |
+| [us_regions](files/data/us_regions/) | Regions made from merged hexagons (West, Midwest, Northeast, South, Washington DC). | [Section 4](#point-4), [5](#point-5) |
+| [regions.csv](files/data/regions.csv) | Table that maps each state to its region. | [4.b](#point-4b), [5](#point-5) |
+| [us_region_map.twbx](files/us_region_map.twbx) | Finished Tableau workbook with the drill-down dashboard. | [Section 6](#point-6) |
+
+**Useful links**
+
+- [Call Center Dashboard on Tableau Public](https://public.tableau.com/views/CallCenterDashboard_17482539625320/CHANNEL)
+- [Tableau Public](https://public.tableau.com/) (free)
 -----------------------------------------------------------------------------
-## 7. Author and License <a id="point-7"></a>
+
+## 8. Author and License <a id="point-8"></a>
 
 **Author:** Iaroslava Mizai
 
