@@ -469,7 +469,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 The map will disappear. This is expected, because the default value of **Select Region** is South.
 
-4. Create a calculated field **Parameter Filter for Region Map** with the formula `[Select Region]="All"` and add it to the filters on the **Regions** sheet in the same way, selecting `True`. As a result you will see the South region map (because South is the default parameter value).
+4. On Sheet 'States' create a calculated field **Parameter Filter for Region Map** with the formula `[Select Region]="All"` and add it to the filters on the **Regions** sheet in the same way, selecting `True`. As a result you will see the South region map (because South is the default parameter value).
 
 #### Dashboard
 
