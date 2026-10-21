@@ -22,6 +22,7 @@ A classic US map can be misleading: large states with minimal data visually domi
 
 Recently, I created a [**Call Center Dashboard **](https://public.tableau.com/views/CallCenterDashboard_17482539625320/CHANNEL?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 in Tableau 
+
 <img src="files/images/Call Center dashboard.png" width="600" /> 
 
 , where I needed this type of US map. The task turned out to be more interesting than simply drawing a standard map. The idea was to show different communication channels, with each channel having its own map, and each map divided into regions. Dashboard space was tight, so the map had to be very compact.
