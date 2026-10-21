@@ -56,7 +56,7 @@ If it doesn't, click the CRS code in the bottom-right corner, or open **Project 
 
 > Because there is no real map under the tiles, turn the background off (**Map → Background Layers**, uncheck all layers), as shown in Step 5.
 
-**Not familiar with Python?** You can download a ready-made `.shp` file [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
+**Not familiar with Python?** You can download a ready-made `.shp` file ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ) (or use any other open hex-map shapefile) and start from **Step [4.a) Merging hexagons (no coding)](#point-4a) **.
 
 Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
 
@@ -186,7 +186,7 @@ QGIS will add the saved shapefile to your project too. Use this file in the next
 
 ### 4.a Way 1: Merged hexagons (no coding) <a id="point-4a"></a>
 
-###  If you haven't worked with Python, or you already have a hexagonal map shapefile [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions), you can start from this step.
+###  If you haven't worked with Python, or you already have a hexagonal map shapefile ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ), you can start from this step.
 
 Composition of the regions:
 
@@ -199,7 +199,7 @@ Composition of the regions:
 
 We will use **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM, AK, HI) as an example. The steps are the same for the other regions.
 
-#### Preparation
+### Preparation
 
 ### 1. Import `us_hex_map` into QGIS
 
@@ -229,7 +229,7 @@ The hexagons will appear on the map.
  
 ![Temp_layer](files/images/Temp_layer.png)
 
-#### 2. Select the states of one region
+### 2. Select the states of one region
 
 1. On the toolbar, choose **Select Features by Area or Single Click** (the yellow square with a cursor).
 2. Click the first state, then click the rest while holding **Ctrl**.
