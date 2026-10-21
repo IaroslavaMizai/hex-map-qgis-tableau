@@ -306,7 +306,7 @@ Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile
 
 ![us hex map](files/images/us_hex_map.png) 
 
-### 4.b) Generate the shapefile with Python <a id="point-4b"></a>
+### 4.b) Way: Generate the shapefile with Python <a id="point-4b"></a>
 
 This script reads two files from your computer, so before running it make sure you have:
 
