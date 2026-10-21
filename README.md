@@ -415,7 +415,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 <img src="files/images/US_regions_export.png" width="700" /> 
 <img src="files/images/US_regions_export2.png" width="700" /> 
 
-> **Note:** temporary layers are lost if you close QGIS Project without saving. Export the layer before closing.
+> **Note:** temporary layers are lost if you close QGIS Project without saving. Export the layer before closing project.
 
 ### 5. Import the map into Tableau <a id="point-5"></a>
 
