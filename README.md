@@ -205,11 +205,11 @@ We will use **West** (WA, OR, CA, NV, ID, MT, WY, UT, CO, AZ, NM, AK, HI) as an 
 
 If you downloaded the ready-made shapefile instead of running the Python script, add it to QGIS like this.
 
-1. **Unzip the download** (if it came as a `.zip`) and keep all the files together in one folder: `us_hex_map.shp`, `.shx`, `.dbf`, `.prj` (and `.cpg` if present). QGIS needs them all, not just the `.shp`.
+a. **Unzip the download** (if it came as a `.zip`) and keep all the files together in one folder: `us_hex_map.shp`, `.shx`, `.dbf`, `.prj` (and `.cpg` if present). QGIS needs them all, not just the `.shp`.
 
-2. In QGIS, go to **Layer → Add Layer → Add Vector Layer…** (or press **Ctrl+Shift+V**).
-3. Next to **Vector Dataset(s)**, click `…` and select `us_hex_map.shp`.
-4. Click **Add**, then **Close**.
+b. In QGIS, go to **Layer → Add Layer → Add Vector Layer…** (or press **Ctrl+Shift+V**).
+c. Next to **Vector Dataset(s)**, click `…` and select `us_hex_map.shp`.
+d. Click **Add**, then **Close**.
 
 <img src="files/images/Vector_file.png" width="700" />
 <img src="files/images/Import_file.png" width="700" /> 
@@ -231,28 +231,28 @@ The hexagons will appear on the map.
 
 ### 2. Select the states of one region
 
-1. On the toolbar, choose **Select Features by Area or Single Click** (the yellow square with a cursor).
-2. Click the first state, then click the rest while holding **Ctrl**.
+a. On the toolbar, choose **Select Features by Area or Single Click** (the yellow square with a cursor).
+b. Click the first state, then click the rest while holding **Ctrl**.
 
 ![Select Features](files/images/Select_features.png) 
 
-3. Check how many are selected at the bottom of the QGIS window (or **Layer → Show Selected Features Count**). For West there should be 11.
+c. Check how many are selected at the bottom of the QGIS window (or **Layer → Show Selected Features Count**). For West there should be 11.
    
 ![West States](files/images/West_states.png) 
 
 #### 3. Dissolve the selection
 
-1. Open the **Processing Toolbox** (Ctrl+Alt+T) and find **Dissolve**.
+a. Open the **Processing Toolbox** (Ctrl+Alt+T) and find **Dissolve**.
 
 ![Dissolve](files/images/Dissolve.png) 
 
-2. Set it up:
+b. Set it up:
    - **Input layer:** `us_hex_map`
    - Turn on **Selected features only**
    - **Dissolve field(s):** leave empty
    - **Dissolved:** save to a  temporary file **West**
 
-3. Click **Run** then close Dissolve window.
+c. Click **Run** then close Dissolve window.
 
 You will get a new layer with a single West shape.
 
