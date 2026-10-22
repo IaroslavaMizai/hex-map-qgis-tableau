@@ -1,4 +1,4 @@
-# Hex Tile Maps with Regions: From QGIS to Tableau Public
+# Drill-down regional map with dissolved hexagons: From QGIS to Tableau Public
 
 ## 📝Table of Contents
 1. [What Is a Hex Tile Map](#point-1)
