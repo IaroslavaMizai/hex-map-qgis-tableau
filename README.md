@@ -20,7 +20,7 @@ A classic US map can be misleading: large states with minimal data visually domi
 
 ## 2. The Challenge: Regions on a Hex Map <a id="point-2"></a>
 
-Recently, I created a [**Call Center Dashboard **](https://public.tableau.com/views/CallCenterDashboard_17482539625320/CHANNEL?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+Recently, I created a [**Call Center Dashboard**](https://public.tableau.com/views/CallCenterDashboard_17482539625320/CHANNEL?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 in Tableau, where I needed this type of US map.
 
 <img src="files/images/Call Center dashboard.png" width="600" /> 
