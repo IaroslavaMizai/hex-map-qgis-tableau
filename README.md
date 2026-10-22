@@ -335,6 +335,9 @@ This script reads two files from your computer, so before running it make sure y
 
 Keep both files in one folder, for example the `data`.
 
+> Before running the Python script below, make sure to update SRC_PATH and CSV_PATH with the actual file paths where these files are saved on your computer (e.g., replace "C:/path/data/..." with your custom folder path). Otherwise, the script will fail with an error.
+
+
 ```
 import csv
 from qgis.core import (QgsVectorLayer, QgsFeature, QgsGeometry, QgsField,
