@@ -324,8 +324,6 @@ All regions are ready.
 Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile → CRS EPSG:4326 → Keep only the `region` field → **OK**.
 ![Merge Saved](files/images/Merge_Saved.png) 
 
-![us hex map](files/images/us_hex_map.png) 
-
 ### 4.b) Way: Generate the shapefile with Python <a id="point-4b"></a>
 
 This script reads two files from your computer, so before running it make sure you have:
