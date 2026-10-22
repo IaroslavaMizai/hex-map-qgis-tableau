@@ -144,14 +144,19 @@ for i, (abbr, name, row, col) in enumerate(STATES, start=1):
     f.setGeometry(hexagon(col*W + (row % 2)*W/2, -row*H_STEP))
     f.setAttributes([i, name, abbr])
     feats.append(f)
-pr.addFeatures(feats)
+
+# Add features to the layer
+result = pr.addFeatures(feats)
 layer.updateExtents()
-print("Hexagons created:", layer.featureCount())   # should print 51
+
+print("Hexagons in layout:", len(STATES))
+print("Hexagons created:", layer.featureCount())
 
 # Show the Layer on the Map
 QgsProject.instance().addMapLayer(layer)
 iface.mapCanvas().setExtent(layer.extent())
 iface.mapCanvas().refresh()
+
 ```
 Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
 
