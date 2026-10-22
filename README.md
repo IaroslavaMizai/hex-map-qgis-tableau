@@ -158,7 +158,7 @@ iface.mapCanvas().setExtent(layer.extent())
 iface.mapCanvas().refresh()
 
 ```
-Open **Plugins → Python Console → Show Editor**, paste the code and click **Run**.
+Open **Plugins → Python Console → Show Editor icon (the notepad with a pencil on the console toolbar), paste the code, and click the green *Run* triangle.
 
 <img src="files/images/Python_Console.png" width="700" /> 
 
@@ -335,7 +335,6 @@ This script reads two files from your computer, so before running it make sure y
 
 Keep both files in one folder, for example the `data`.
 
-
 ```
 import csv
 from qgis.core import (QgsVectorLayer, QgsFeature, QgsGeometry, QgsField,
@@ -422,6 +421,8 @@ iface.mapCanvas().setExtent(out.extent())
 iface.mapCanvas().refresh()
 ```
 <img src="files/images/US_regions.png" width="700" /> 
+
+Open **Plugins → Python Console → Show Editor icon (the notepad with a pencil on the console toolbar), paste the code, and click the green *Run* triangle.
 
 ### Save the regions layer as a shapefile
 
