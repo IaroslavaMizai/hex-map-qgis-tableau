@@ -592,15 +592,15 @@ You will get a regional map with the hexagon borders dissolved.
 
 1. Create a parameter called **Select Region** with the default value **South**.
 
-<img src="files/images/Select_region_parameter.png" width="700" />
+<img src="files/images/Parameter.png" width="700" />
 
 2. Create a calculated field **Parameter Filter for States Map** with the formula `[region]=[Select Region]` and add it to the filters on the **States** sheet.
 
-<img src="files/images/State_filter.png" width="700" />
+<img src="files/images/Filter.png" width="700" />
 
 3. Drag the field to **Filters**. In the filter window, choose **Custom value list**, type `True`, click the plus (cross) icon on the right, and save.
 
-<img src="files/images/State_filter2.png" width="700" />
+<img src="files/images/Filter2.png" width="700" />
 
 The map will disappear. This is expected, because the default value of **Select Region** is South.
 
