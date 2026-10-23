@@ -669,8 +669,8 @@ hex-map-qgis-tableau/
 | [us_hex_map](files/data/us_hex_map/) | Hex map of US states (51 hexagons). Keep `.shp`, `.shx`, `.dbf`, `.prj` and `.cpg` together. | [Section 3](#point-3), [4.a](#point-4a), [4.b](#point-4b) |
 | [us_regions](files/data/us_regions/) | Regions made from merged hexagons (West, Midwest, Northeast, South, Washington DC). | [Section 4](#point-4), [5](#point-5) |
 | [regions.csv](files/data/regions.csv) | Table that maps each state to its region. | [4.b](#point-4b), [5](#point-5) |
-| [us_region_map_way2.twbx](files/us_region_map.twbx) | Finished Tableau workbook with the drill-down dashboard. | [Section 6](#point-6) |
-| [us_region_map_way2.twbx](files/us_region_map.twbx) | Finished Tableau workbook with the drill-down dashboard. | [Section 6](#point-6) |
+| [us_region_map_way2.twbx](files/us_region_map1.twbx) | Finished Tableau workbook with the drill-down dashboard. | [Section 6](#point-6) |
+| [us_region_map_way2.twbx](files/us_region_map2.twbx) | Finished Tableau workbook with the drill-down dashboard. | [Section 6](#point-6) |
 
 **Useful links**
 
