@@ -584,7 +584,7 @@ and drag it to Detail on the Marks card. Then drag region to Detail and Label, a
 Remove the background as in the previous chapter.
 You will get a regional map with the hexagon borders dissolved.
 
-<img src="files/images/Geometry_regions2.png" width="700" />
+<img src="files/images/Geometry_regions_2.png" width="700" />
 
 ## 5.3. Drill-down effect for the map <a id="point-53"></a>
 
