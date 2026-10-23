@@ -14,7 +14,7 @@
 5. [Dissolved shapes in Tableau Public](#point-5)
    - 5.1 [Import the map into Tableau](#point-51)
    - 5.2 [Create regions with Union (Geometry)](#point-52)
-   - 5.3 [Drill-down effect for the map](point-53)
+   - 5.3 [Drill-down effect for the map](#point-53)
 6. [Files used in this project](#point-6)
 7. [Author and License](#point-7)
    
