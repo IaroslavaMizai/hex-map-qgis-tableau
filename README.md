@@ -654,12 +654,12 @@ You can download the finished project here: [**Drill-down regional map with diss
 | | Dissolve in QGIS | Dissolve in Tableau (Group / UNION) |
 |---|---|---|
 | **Pros** | Done once, saved as a lightweight shapefile. Reusable in other tools. Dashboard just draws ready shapes. | No extra file, no second program. Changing regions is quick: edit `regions.csv` or the group. |
-| **Cons** | Extra step outside Tableau. Changing regions means rerunning the steps or the script. | Merged on the fly, so Tableau recalculates the geometry. Result exists only inside the workbook. |
+| **Cons** | Extra step outside Tableau Public. Changing regions means rerunning the steps or the script. | Merged on the fly, so Tableau recalculates the geometry. Result exists only inside the workbook. |
 
 **What if there are many regions?**
 For a few regions (like the five here), you will not notice any difference. With dozens or hundreds of regions, or with detailed shapes instead of hexagons, QGIS is the safer choice: Tableau does not have to merge geometry every time the dashboard loads or a filter changes, and the shapefile can be simplified beforehand.
 
-**Rule of thumb:** prototype in Tableau, and move the final regions to QGIS if the dashboard gets heavy.
+**Rule of thumb:** prototype in Tableau Public, and move the final regions to QGIS if the dashboard gets heavy.
 
 
 ## 7. Files used in this project <a id="point-7"></a>
