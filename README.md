@@ -5,14 +5,14 @@
 2. [The Challenge: Regions on a Hex Map](#point-2)
 3. [Creating the Hex Map Shapefile of US States](#point-3)
    
-4. [Dissolved shapes in QGIS](#point-4) 
-4.1. [Map with regions](#point-4.1)
+4. [Dissolved shapes in QGIS](#point-4)
+4.1 [Map with regions](#point-4.1)
    - 4.1.a) [ Way 1: Merged hexagons (no coding)](#point-4a)
    - 4.1.b) [ Way 2: Generate the shapefile with Python](#point-4b)
 4.2. [Import the map into Tableau](#point-5)
 4.3. [Drill-Down effect for map](#point-6)
   
-5. [Dissolved shapes in Tableau Public](#point-5):
+6. [Dissolved shapes in Tableau Public](#point-5):
    5.1.[Gouping](#point-5.1)
    5.2 [Union (Geometry)](#point-5.2)
 7. [Files used in this project](#point-6)
