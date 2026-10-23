@@ -4,8 +4,8 @@
 1. [What Is a Hex Tile Map](#point-1)
 2. [The Challenge: Regions on a Hex Map](#point-2)
 3. [Creating the Hex Map Shapefile of US States](#point-3)
-
-4.[Dissolved shapes in QGIS](#point-4): 
+   
+4. [Dissolved shapes in QGIS](#point-4) 
 4.1. [Map with regions](#point-4.1)
    - 4.1.a) [ Way 1: Merged hexagons (no coding)](#point-4a)
    - 4.1.b) [ Way 2: Generate the shapefile with Python](#point-4b)
