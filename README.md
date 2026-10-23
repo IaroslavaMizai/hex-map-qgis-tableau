@@ -14,6 +14,7 @@
 5. [Dissolved shapes in Tableau Public](#point-5)
    - 5.1 [Import the map into Tableau](#point-51)
    - 5.2 [Create regions with Union (Geometry)](#point-52)
+   - 5.3 [Drill-down effect for the map](point-53)
 6. [Files used in this project](#point-6)
 7. [Author and License](#point-7)
    
@@ -584,7 +585,7 @@ You will get a regional map with the hexagon borders dissolved.
 
 <img src="files/images/Tableau_State_map_clean.png" width="700" />
 
-### 5.3. Drill-down effect for the map <a id="point-53"></a>
+## 5.3. Drill-down effect for the map <a id="point-53"></a>
 
 #### Parameter and filters
 
