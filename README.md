@@ -544,7 +544,9 @@ The button clears the selection and brings back the map with all regions.
 
 You can download the finished project here: [**Drill-down regional map with dissolved hexagons**](https://public.tableau.com/views/us_region_map/Map2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-## 5 In Part 1 we dissolved the state hexagons into regions (West, Midwest, South, Northeast) in QGIS. Now we’ll do the same thing directly in Tableau Public, without touching the shapefile again. The trick is the Group feature, which makes Tableau Public merge geometries on the fly.
+## 5 Dissolved shapes in Tableau Public
+In Part 4 we dissolved the state hexagons into regions (West, Midwest, South, Northeast) in QGIS. Now we’ll do the same thing directly in Tableau Public, without touching the shapefile again. The trick is the Union of geometry , which makes Tableau Public merge geometries on the fly.
+
 
 ## 6. Files used in this project <a id="point-6"></a>
 
