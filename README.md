@@ -15,9 +15,9 @@
    - 5.1 [Import the map into Tableau](#point-51)
    - 5.2 [Create regions with Union (Geometry)](#point-52)
    - 5.3 [Drill-down effect for the map](#point-53)
-6. [Files used in this project](#point-6)
-7 ## [QGIS vs Tableau: pros and cons of dissolving](#point-7)
-8. [Author and License](#point-7)
+6. [QGIS vs Tableau: pros and cons of dissolving](#point-6)
+7. [Files used in this project](#point-7)
+8. [Author and License](#point-8)
    
 ## 1. What Is a Hex Tile Map? <a id="point-1"></a>
 
