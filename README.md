@@ -646,7 +646,7 @@ The button clears the selection and brings back the map with all regions.
 
 9. Add the **Reset Button** sheet to the dashboard and adjust its size on the **Layout** panel.
 
-You can download the finished project here: [**Drill-down regional map with dissolved hexagons Way 2**](https://public.tableau.com/views/us_region_map/Map2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+You can download the finished project here: [**Drill-down regional map with dissolved hexagons Way 2**](https://public.tableau.com/views/Drill-downregionalmapwithdissolvedhexagonsWay2Tutorial/Map?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 
