@@ -12,7 +12,7 @@
    - 4.2 [Import the map into Tableau](#point42)
    - 4.3 [Drill-down effect for the map](#point-43)
 5. [Dissolved shapes in Tableau Public](#point-5)
-   - 5.1 [Grouping](#point-51)
+   - 5.1 [Create the regions with a Group](#point-51)
    - 5.2 [Union (Geometry)](#point-52)
 6. [Files used in this project](#point-6)
 7. [Author and License](#point-7)
@@ -570,7 +570,13 @@ In Part 4 we dissolved the state hexagons into regions (West, Midwest, South, No
    2. Go to **Map → Background Layers** and uncheck all points in the **Background Map Layers**.
    3. Remove the titles on both sheets.
 
-### 5.1 Grouping <a id="point-51"></a>
+### 5.1 Create the regions with a **Group** <a id="point-51"></a>
+This is the Tableau equivalent of QGIS’s Dissolve.
+In the Data pane, right-click the state field and choose **Create** → **Group**….
+Hold **Ctrl** and select all the states of one region, for example the Western states, then click Group.
+Rename the group to `West`.
+Repeat for the remaining regions (`Midwest`, `South`, `Northeast`, and `Washington DC`), using the same assignment of states as in Part 1.
+Click OK. A new field, state_abbr (group), appears in the Data pane. Rename it to **Region**.
 
 <a id="point-52"></a>
 
