@@ -547,8 +547,32 @@ You can download the finished project here: [**Drill-down regional map with diss
 ## 5. Dissolved shapes in Tableau Public  <a id="point-5"></a>
 In Part 4 we dissolved the state hexagons into regions (West, Midwest, South, Northeast) in QGIS. Now we’ll do the same thing directly in Tableau Public, without touching the shapefile again. The trick is the Union of geometry , which makes Tableau Public merge geometries on the fly.
 
-<a id="point-51"></a>
+### 5.1 Grouping <a id="point-51"></a>
+> Before you start, make sure that all the shapefiles you created earlier (`.shp`) and their supporting files (`.shx`, `.dbf`, `.prj`) are stored together in one folder.
+
+#### States map
+
+   1. Create a new project in Tableau Public and import `us_hex_map.shp`.
+   2. Join it with `regions.csv` on the common column `state`. Join type: **Left Join**.
+
+<img src="files/images/Tableau_import_data.png" width="700" />
+
+   3. On the **Marks** card, drag **Geometry** and `state` to **Detail**, `calls` to **Color**, and `abbr` to **Label**.
+   4. Rename the sheet to **States**.
+
+<img src="files/images/Tableau_State_map.png" width="700" />
+
+#### Remove the background
+
+1. Open the **Format** menu and set the **Worksheet** shading to **None**.
+
+<img src="files/images/Tableau_State_map_clean.png" width="700" />
+
+   2. Go to **Map → Background Layers** and uncheck all points in the **Background Map Layers**.
+   3. Remove the titles on both sheets.
+
 <a id="point-52"></a>
+
 ## 6. Files used in this project <a id="point-6"></a>
 
 ```
