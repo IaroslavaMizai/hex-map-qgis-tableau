@@ -575,7 +575,7 @@ In Part 4 we dissolved the state hexagons into regions (West, Midwest, South, No
    3. Remove the titles on both sheets.
 
 
-## 5.2 Create regions with Union (Geometry)<a id="point-52"></a>
+## 5.2 Create regions with UNION(Geometry)<a id="point-52"></a>
 Create another sheet and name it **Regions**.
 Create a calculated field named Geometry Region with the formula UNION([Geometry]) 
 
