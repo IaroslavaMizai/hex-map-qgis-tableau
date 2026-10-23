@@ -210,9 +210,9 @@ QGIS will add the saved shapefile to your project too. Use this file in the next
 
 ## 4 IN QGIS <a id="point-4"></a>
 
-## 4.1 Map with regions <a id="point-4.1"></a>
+## 4.1 Map with regions <a id="point-41"></a>
 
-### 4.1.a Way 1: Merged hexagons (no coding) <a id="point-4a"></a>
+### 4.1.a Way 1: Merged hexagons (no coding) <a id="point-41a"></a>
 
 > If you haven't worked with Python, or you already have a hexagonal map shapefile ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ), you can start from this step.
 
@@ -447,7 +447,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 > **Note:** temporary layers are lost if you close QGIS Project without saving. Export the layer before closing project.
 
-### 4.2. Import the map into Tableau <a id="point-4.2"></a>
+### 4.2. Import the map into Tableau <a id="point-42"></a>
 
 > Before you start, make sure that all the shapefiles you created earlier (`.shp`) and their supporting files (`.shx`, `.dbf`, `.prj`) are stored together in one folder.
 
@@ -481,7 +481,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
    2. Go to **Map → Background Layers** and uncheck all points in the **Background Map Layers**.
    3. Remove the titles on both sheets.
 
-### 4.3. Drill-down effect for the map <a id="point-4.3"></a>
+### 4.3. Drill-down effect for the map <a id="point-43"></a>
 
 #### Parameter and filters
 
