@@ -1,23 +1,22 @@
 # Drill-down regional map with dissolved hexagons: From QGIS to Tableau Public
 
-## 📝Table of Contents
+## 📝 Table of Contents
+
 1. [What Is a Hex Tile Map](#point-1)
 2. [The Challenge: Regions on a Hex Map](#point-2)
 3. [Creating the Hex Map Shapefile of US States](#point-3)
-   
 4. [Dissolved shapes in QGIS](#point-4)
-4.1 [Map with regions](#point-4.1)
-   - 4.1.a) [ Way 1: Merged hexagons (no coding)](#point-4a)
-   - 4.1.b) [ Way 2: Generate the shapefile with Python](#point-4b)
-4.2. [Import the map into Tableau](#point-5)
-4.3. [Drill-Down effect for map](#point-6)
-  
-6. [Dissolved shapes in Tableau Public](#point-5):
-   5.1.[Gouping](#point-5.1)
-   5.2 [Union (Geometry)](#point-5.2)
-7. [Files used in this project](#point-6)
-8. [Author and License](#point-7)
-
+   - 4.1 [Map with regions](#point-4-1)
+     - 4.1.a [Way 1: Merged hexagons (no coding)](#point-4-1-a)
+     - 4.1.b [Way 2: Generate the shapefile with Python](#point-4-1-b)
+   - 4.2 [Import the map into Tableau](#point-4-2)
+   - 4.3 [Drill-down effect for the map](#point-4-3)
+5. [Dissolved shapes in Tableau Public](#point-5)
+   - 5.1 [Grouping](#point-5-1)
+   - 5.2 [Union (Geometry)](#point-5-2)
+6. [Files used in this project](#point-6)
+7. [Author and License](#point-7)
+   
 ## 1. What Is a Hex Tile Map? <a id="point-1"></a>
 
 Hex tile maps are an excellent way to display geographic data in a simplified form while preserving the relative positions of regions or states. Each state becomes an equally sized tile, so small states (like Rhode Island or Delaware) don't get lost next to huge ones (like Texas or Alaska). Alaska and Hawaii can also be placed compactly, close to the mainland, instead of sitting far away on the map.
