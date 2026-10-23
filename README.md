@@ -653,13 +653,14 @@ You can download the finished project here: [**Drill-down regional map with diss
 
 | | Dissolve in QGIS | Dissolve in Tableau (Group / UNION) |
 |---|---|---|
-| **Pros** | Done once, saved as a lightweight shapefile. Reusable in other tools. Dashboard just draws ready shapes. | No extra file, no second program. Changing regions is quick: edit `regions.csv` or the group. |
-| **Cons** | Extra step outside Tableau Public. Changing regions means rerunning the steps or the script. | Merged on the fly, so Tableau recalculates the geometry. Result exists only inside the workbook. |
+| **Pros** | You get a ready regions shapefile that you can use in any project. The merge is done once, so Tableau only draws the result. You can simplify the shapes before importing. | Everything happens in one program. There is no extra file to create or manage. Region changes are quick: edit `regions.csv` and refresh. |
+| **Cons** | One more step outside Tableau. The manual way is repetitive, but the Python script does it for all regions at once. | The merged shapes exist only inside the workbook, so you cannot reuse them elsewhere. Tableau does the merging itself, which can be slow for very detailed shapes. |
 
-**What if there are many regions?**
-For a few regions (like the five here), you will not notice any difference. With dozens or hundreds of regions, or with detailed shapes instead of hexagons, QGIS is the safer choice: Tableau does not have to merge geometry every time the dashboard loads or a filter changes, and the shapefile can be simplified beforehand.
+**Will Tableau slow down?**
+It depends on the number of vertices, not the number of regions. A hex map has only a few hundred of them, so dissolving it in Tableau is instant. Detailed shapes such as coastlines, districts or census tracts can have millions of vertices. In that case, dissolve and simplify them once in QGIS before importing.
 
-**Rule of thumb:** prototype in Tableau Public, and move the final regions to QGIS if the dashboard gets heavy.
+**Which one to choose?**
+If you only need the map in one Tableau workbook, dissolve in Tableau. If you need the regions as a file, or your shapes are very detailed, use QGIS.
 
 
 ## 7. Files used in this project <a id="point-7"></a>
