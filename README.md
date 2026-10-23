@@ -4,13 +4,19 @@
 1. [What Is a Hex Tile Map](#point-1)
 2. [The Challenge: Regions on a Hex Map](#point-2)
 3. [Creating the Hex Map Shapefile of US States](#point-3)
-4. [Map with regions](#point-4)
-   - 4.a) [ Way 1: Merged hexagons (no coding)](#point-4a)
-   - 4.b) [ Way 2: Generate the shapefile with Python](#point-4b)
-5. [Import the map into Tableau](#point-5)
-6. [Drill-Down effect for map](#point-6)
-7. [Files used in this project](#point-7)
-8. [Author and License](#point-8)
+
+4.[Dissolved shapes in QGIS](#point-4): 
+4.1. [Map with regions](#point-4.1)
+   - 4.1.a) [ Way 1: Merged hexagons (no coding)](#point-4a)
+   - 4.1.b) [ Way 2: Generate the shapefile with Python](#point-4b)
+4.2. [Import the map into Tableau](#point-5)
+4.3. [Drill-Down effect for map](#point-6)
+  
+5. [Dissolved shapes in Tableau Public](#point-5):
+   5.1.[Gouping](#point-5.1)
+   5.2 [Union (Geometry)](#point-5.2)
+7. [Files used in this project](#point-6)
+8. [Author and License](#point-7)
 
 ## 1. What Is a Hex Tile Map? <a id="point-1"></a>
 
@@ -25,7 +31,10 @@ in Tableau, where I needed this type of US map.
 
 <img src="files/images/Call Center dashboard.png" width="600" /> 
 
- The task turned out to be more interesting than simply drawing a standard map. The idea was to show different communication channels, with each channel having its own map, and each map divided into regions. Dashboard space was tight, so the map had to be very compact.
+ My first thought was the obvious one: build the hex map directly in Tableau. Here is what I got in Tableau. It's not good solution:
+
+<img src="files/images/Tableau_regions_wrong.png" width="700" />
+The task turned out to be more interesting than simply drawing a standard map. The idea was to show different communication channels, with each channel having its own map, and each map divided into regions. Dashboard space was tight, so the map had to be very compact.
 
 Because every hexagon keeps its own border, there are too many lines between states that belong to the same region. This adds unnecessary visual noise.
 
@@ -38,6 +47,9 @@ The hexagons are merged into regions (West, Midwest, South, Northeast and Washin
 [**Tableau Project 'Drill-down regional map with dissolved hexagons'**](https://public.tableau.com/views/us_region_map/Map2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 I needed **two maps**: one with hexagons (states) and one with regions (merged hexagons). However, Tableau cannot merge hexagons into custom regions without internal borders. This is where my favorite tool, **QGIS**, came to the rescue, since it can produce both maps. At this point the idea felt like a real challenge. Let's go through the process step by step, using a simplified sample dataset with number of calls by states.
+
+
+There are two ways to get such result: in QGIS or in Tableau Public. But first of all we should create hex shape:
 
 ## 3. Creating the Hex Map Shapefile of US States in QGIS <a id="point-3"></a>
 
@@ -197,10 +209,11 @@ The layer created by the script is temporary (it lives only in memory, you will 
 > 
 QGIS will add the saved shapefile to your project too. Use this file in the next steps and in Tableau.
 
+## 4 IN QGIS <a id="point-4"></a>
 
-## 4. Map with regions <a id="point-4"></a>
+## 4.1 Map with regions <a id="point-4.1"></a>
 
-### 4.a Way 1: Merged hexagons (no coding) <a id="point-4a"></a>
+### 4.1.a Way 1: Merged hexagons (no coding) <a id="point-4a"></a>
 
 > If you haven't worked with Python, or you already have a hexagonal map shapefile ( [Download us_hex_map folder with shp. file](https://github.com/IaroslavaMizai/hex-map-qgis-tableau/tree/main/files/data/us_regions) ), you can start from this step.
 
@@ -320,7 +333,7 @@ All regions are ready.
 Right-click the layer →  **Export → Save Features As…** → ESRI Shapefile → CRS EPSG:4326 → Keep only the `region` field → **OK**.
 ![Merge Saved](files/images/Merge_Saved.png) 
 
-### 4.b) Way: Generate the shapefile with Python <a id="point-4b"></a>
+### 4.1.b) Way: Generate the shapefile with Python <a id="point-4b"></a>
 
 This script reads two files from your computer, so before running it make sure you have:
 
@@ -435,7 +448,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
 
 > **Note:** temporary layers are lost if you close QGIS Project without saving. Export the layer before closing project.
 
-### 5. Import the map into Tableau <a id="point-5"></a>
+### 4.2. Import the map into Tableau <a id="point-4.2"></a>
 
 > Before you start, make sure that all the shapefiles you created earlier (`.shp`) and their supporting files (`.shx`, `.dbf`, `.prj`) are stored together in one folder.
 
@@ -469,7 +482,7 @@ The `us_regions` layer created by the script is temporary: it lives only in memo
    2. Go to **Map → Background Layers** and uncheck all points in the **Background Map Layers**.
    3. Remove the titles on both sheets.
 
-### 6. Drill-down effect for the map <a id="point-6"></a>
+### 4.3. Drill-down effect for the map <a id="point-4.3"></a>
 
 #### Parameter and filters
 
@@ -532,7 +545,9 @@ The button clears the selection and brings back the map with all regions.
 
 You can download the finished project here: [**Drill-down regional map with dissolved hexagons**](https://public.tableau.com/views/us_region_map/Map2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-## 7. Files used in this project <a id="point-7"></a>
+## 5 In Part 1 we dissolved the state hexagons into regions (West, Midwest, South, Northeast) in QGIS. Now we’ll do the same thing directly in Tableau Public, without touching the shapefile again. The trick is the Group feature, which makes Tableau Public merge geometries on the fly.
+
+## 6. Files used in this project <a id="point-6"></a>
 
 ```
 hex-map-qgis-tableau/
@@ -560,7 +575,7 @@ hex-map-qgis-tableau/
 - [Tableau Public](https://public.tableau.com/) (free)
 -----------------------------------------------------------------------------
 
-## 8. Author and License <a id="point-8"></a>
+## 7. Author and License <a id="point-7"></a>
 
 **Author:** Iaroslava Mizai
 
