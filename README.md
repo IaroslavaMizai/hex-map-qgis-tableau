@@ -307,7 +307,7 @@ c. Save the edits and turn editing off (the pencil again).
 
 #### 5. Repeat for the other regions
 
-Repeat Steps 1–4 for Midwest, Northeast and South. Do Washington DC separately in the same way, but set length 15.
+Repeat Steps 2–4 for Midwest, Northeast and South. Do Washington DC separately in the same way, but set length 15.
 All regions are ready.
 
 ![Regions](files/images/Regions.png) 
