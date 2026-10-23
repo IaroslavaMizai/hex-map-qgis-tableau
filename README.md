@@ -579,12 +579,12 @@ In Part 4 we dissolved the state hexagons into regions (West, Midwest, South, No
 Create another sheet and name it **Regions**.
 Create a calculated field named Geometry Region with the formula UNION([Geometry]) 
 
-<img src="files/images/Tableau_State_map_clean.png" width="700" />
+<img src="files/images/Geometry_regions.png" width="700" />
 and drag it to Detail on the Marks card. Then drag region to Detail and Label, and calls to Color.
 Remove the background as in the previous chapter.
 You will get a regional map with the hexagon borders dissolved.
 
-<img src="files/images/Tableau_State_map_clean.png" width="700" />
+<img src="files/images/Geometry_regions.png" width="700" />
 
 ## 5.3. Drill-down effect for the map <a id="point-53"></a>
 
