@@ -12,8 +12,8 @@
    - 4.2 [Import the map into Tableau](#point42)
    - 4.3 [Drill-down effect for the map](#point-43)
 5. [Dissolved shapes in Tableau Public](#point-5)
-   - 5.1 [Create the regions with a Group](#point-51)
-   - 5.2 [Union (Geometry)](#point-52)
+   - 5.1 [Import the map into Tableau](#point-51)
+   - 5.2 [Create regions with Union (Geometry)](#point-52)
 6. [Files used in this project](#point-6)
 7. [Author and License](#point-7)
    
@@ -541,9 +541,12 @@ The button clears the selection and brings back the map with all regions.
 
 9. Add the **Reset Button** sheet to the dashboard and adjust its size on the **Layout** panel.
 
-You can download the finished project here: [**Drill-down regional map with dissolved hexagons**](https://public.tableau.com/views/us_region_map/Map2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+You can download the finished project here: [**Drill-down regional map with dissolved hexagons Way 1**](https://public.tableau.com/views/us_region_map/Map2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ## 5. Dissolved shapes in Tableau Public  <a id="point-5"></a>
+
+5.1 Import the map into Tableau <a id="point-5"></a>
+
 In Part 4 we dissolved the state hexagons into regions (West, Midwest, South, Northeast) in QGIS. Now we’ll do the same thing directly in Tableau Public, without touching the shapefile again. The trick is the Union of geometry , which makes Tableau Public merge geometries on the fly.
 
 > Before you start, make sure that all the shapefiles you created earlier (`.shp`) and their supporting files (`.shx`, `.dbf`, `.prj`) are stored together in one folder.
@@ -569,15 +572,82 @@ In Part 4 we dissolved the state hexagons into regions (West, Midwest, South, No
    2. Go to **Map → Background Layers** and uncheck all points in the **Background Map Layers**.
    3. Remove the titles on both sheets.
 
-### 5.1 Create the regions with a **Group** <a id="point-51"></a>
-This is the Tableau equivalent of QGIS’s Dissolve.
-In the Data pane, right-click the state field and choose **Create** → **Group**….
-Hold **Ctrl** and select all the states of one region, for example the Western states, then click Group.
-Rename the group to `West`.
-Repeat for the remaining regions (`Midwest`, `South`, `Northeast`, and `Washington DC`), using the same assignment of states as in Part 1.
-Click OK. A new field, state_abbr (group), appears in the Data pane. Rename it to **Region**.
 
-<a id="point-52"></a>
+## 5.2 Create regions with Union (Geometry)<a id="point-52"></a>
+Create another sheet and name it **Regions**.
+Create a calculated field named Geometry Region with the formula UNION([Geometry]) 
+
+<img src="files/images/Tableau_State_map_clean.png" width="700" />
+and drag it to Detail on the Marks card. Then drag region to Detail and Label, and calls to Color.
+Remove the background as in the previous chapter.
+You will get a regional map with the hexagon borders dissolved.
+
+<img src="files/images/Tableau_State_map_clean.png" width="700" />
+
+### 5.3. Drill-down effect for the map <a id="point-53"></a>
+
+#### Parameter and filters
+
+1. Create a parameter called **Select Region** with the default value **South**.
+
+<img src="files/images/Select_region_parameter.png" width="700" />
+
+2. Create a calculated field **Parameter Filter for States Map** with the formula `[region]=[Select Region]` and add it to the filters on the **States** sheet.
+
+<img src="files/images/State_filter.png" width="700" />
+
+3. Drag the field to **Filters**. In the filter window, choose **Custom value list**, type `True`, click the plus (cross) icon on the right, and save.
+
+<img src="files/images/State_filter2.png" width="700" />
+
+The map will disappear. This is expected, because the default value of **Select Region** is South.
+
+4. Create a calculated field **Parameter Filter for Region Map** with the formula `[Select Region]="All"` and add it to the filters on the **Regions** sheet in the same way, selecting `True`. As a result you will see the South region map (because South is the default parameter value).
+
+#### Dashboard
+
+1. Create a dashboard called **Map**. Place both sheets (**States** and **Regions**) in a vertical container. Only the **Regions** map will be visible, because the **States** sheet is empty for now.
+2. Remove all the legends and filters that Tableau added automatically when you dragged the sheets into the container.
+3. Add a text object with the text `Drill-Down Regional Map` to the container.
+
+<img src="files/images/Container.png" width="700" />
+
+#### The drill-down action
+
+1. In the **Dashboard** menu, choose **Actions → Add Action → Change Parameter**.
+2. Name the action **Drill-Down Maps**.
+3. **Source Sheets:** **States** and **Regions**.
+4. **Target Parameter:** **Select Region**.
+5. **Source field:** `region`.
+6. **Run action on:** **Select**.
+7. **Clearing the selection will:** **Set value to**, leave the value empty.
+
+<img src="files/images/Actions.png" width="700" />
+<img src="files/images/Actions2.png" width="700" />
+
+#### The Reset button
+
+The button clears the selection and brings back the map with all regions.
+
+1. Create a sheet called **Reset Button**. On the **Marks** card, choose **Text**, add a field with the text `Reset Button` as the text, and put the field `All` on **Detail**.
+
+<img src="files/images/Reset_Button.png" width="700" />
+
+2. In the **Dashboard** menu, choose **Actions → Add Action → Change Parameter**.
+3. Name the action **Reset Maps**.
+4. **Source Sheet:** **Reset Button**.
+5. **Target Parameter:** **Select Region**.
+6. **Source field:** `All`.
+7. **Run action on:** **Select**.
+8. **Clearing the selection will:** **Set value to**, and enter `All`.
+
+<img src="files/images/Reset.png" width="700" />
+
+9. Add the **Reset Button** sheet to the dashboard and adjust its size on the **Layout** panel.
+
+You can download the finished project here: [**Drill-down regional map with dissolved hexagons Way 2**](https://public.tableau.com/views/us_region_map/Map2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+
 
 ## 6. Files used in this project <a id="point-6"></a>
 
@@ -599,7 +669,8 @@ hex-map-qgis-tableau/
 | [us_hex_map](files/data/us_hex_map/) | Hex map of US states (51 hexagons). Keep `.shp`, `.shx`, `.dbf`, `.prj` and `.cpg` together. | [Section 3](#point-3), [4.a](#point-4a), [4.b](#point-4b) |
 | [us_regions](files/data/us_regions/) | Regions made from merged hexagons (West, Midwest, Northeast, South, Washington DC). | [Section 4](#point-4), [5](#point-5) |
 | [regions.csv](files/data/regions.csv) | Table that maps each state to its region. | [4.b](#point-4b), [5](#point-5) |
-| [us_region_map.twbx](files/us_region_map.twbx) | Finished Tableau workbook with the drill-down dashboard. | [Section 6](#point-6) |
+| [us_region_map_way2.twbx](files/us_region_map.twbx) | Finished Tableau workbook with the drill-down dashboard. | [Section 6](#point-6) |
+| [us_region_map_way2.twbx](files/us_region_map.twbx) | Finished Tableau workbook with the drill-down dashboard. | [Section 6](#point-6) |
 
 **Useful links**
 
