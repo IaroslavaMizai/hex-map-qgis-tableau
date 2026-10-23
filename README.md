@@ -649,9 +649,20 @@ The button clears the selection and brings back the map with all regions.
 
 You can download the finished project here: [**Drill-down regional map with dissolved hexagons Way 2**](https://public.tableau.com/views/Drill-downregionalmapwithdissolvedhexagonsWay2Tutorial/Map?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
+6 ## QGIS vs Tableau: pros and cons of dissolving <a id="point-6"></a>
+
+| | Dissolve in QGIS | Dissolve in Tableau (Group / UNION) |
+|---|---|---|
+| **Pros** | Done once, saved as a lightweight shapefile. Reusable in other tools. Dashboard just draws ready shapes. | No extra file, no second program. Changing regions is quick: edit `regions.csv` or the group. |
+| **Cons** | Extra step outside Tableau. Changing regions means rerunning the steps or the script. | Merged on the fly, so Tableau recalculates the geometry. Result exists only inside the workbook. |
+
+**What if there are many regions?**
+For a few regions (like the five here), you will not notice any difference. With dozens or hundreds of regions, or with detailed shapes instead of hexagons, QGIS is the safer choice: Tableau does not have to merge geometry every time the dashboard loads or a filter changes, and the shapefile can be simplified beforehand.
+
+**Rule of thumb:** prototype in Tableau, and move the final regions to QGIS if the dashboard gets heavy.
 
 
-## 6. Files used in this project <a id="point-6"></a>
+## 7. Files used in this project <a id="point-7"></a>
 
 ```
 hex-map-qgis-tableau/
@@ -679,18 +690,6 @@ hex-map-qgis-tableau/
 - [Call Center Dashboard on Tableau Public](https://public.tableau.com/views/CallCenterDashboard_17482539625320/CHANNEL)
 - [Tableau Public](https://public.tableau.com/) (free)
 -----------------------------------------------------------------------------
-
-7 ## QGIS vs Tableau: pros and cons of dissolving <a id="point-7"></a>
-
-| | Dissolve in QGIS | Dissolve in Tableau (Group / UNION) |
-|---|---|---|
-| **Pros** | Done once, saved as a lightweight shapefile. Reusable in other tools. Dashboard just draws ready shapes. | No extra file, no second program. Changing regions is quick: edit `regions.csv` or the group. |
-| **Cons** | Extra step outside Tableau. Changing regions means rerunning the steps or the script. | Merged on the fly, so Tableau recalculates the geometry. Result exists only inside the workbook. |
-
-**What if there are many regions?**
-For a few regions (like the five here), you will not notice any difference. With dozens or hundreds of regions, or with detailed shapes instead of hexagons, QGIS is the safer choice: Tableau does not have to merge geometry every time the dashboard loads or a filter changes, and the shapefile can be simplified beforehand.
-
-**Rule of thumb:** prototype in Tableau, and move the final regions to QGIS if the dashboard gets heavy.
 
 
 ## 8. Author and License <a id="point-8"></a>
