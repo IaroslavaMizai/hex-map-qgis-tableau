@@ -27,10 +27,6 @@ in Tableau, where I needed this type of US map.
 
  The task turned out to be more interesting than simply drawing a standard map. The idea was to show different communication channels, with each channel having its own map, and each map divided into regions. Dashboard space was tight, so the map had to be very compact.
 
-My first thought was the obvious one: build the hex map directly in Tableau, which even has dedicated functions for this. However, this approach has limitations. Here is what I got in Tableau:
-
-<img src="files/images/Tableau_regions_wrong.png" width="700" /> 
-
 Because every hexagon keeps its own border, there are too many lines between states that belong to the same region. This adds unnecessary visual noise.
 
 So I decided to aim for something like this instead:
